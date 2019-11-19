@@ -12539,11 +12539,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Aluno\\source\\repos\\Livraria\\Livraria\\Livraria.csproj",
+      "projectUniqueName": "C:\\Users\\Aluno\\Livraria\\Livraria\\Livraria.csproj",
       "projectName": "Livraria",
-      "projectPath": "C:\\Users\\Aluno\\source\\repos\\Livraria\\Livraria\\Livraria.csproj",
+      "projectPath": "C:\\Users\\Aluno\\Livraria\\Livraria\\Livraria.csproj",
       "packagesPath": "C:\\Users\\Aluno\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Aluno\\source\\repos\\Livraria\\Livraria\\obj\\",
+      "outputPath": "C:\\Users\\Aluno\\Livraria\\Livraria\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
