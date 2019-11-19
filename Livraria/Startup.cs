@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Livraria.DAO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -31,6 +33,16 @@ namespace Livraria
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddScoped<LivroDAO>();
+
+            //Criar ID de contexto
+            services.AddDbContext<Context>
+                (options => options.UseSqlServer
+                (Configuration.GetConnectionString("Livraria")));
+
+            //Configurar a sessão ANTES do services.AddMvc()
+            services.AddSession();
+            services.AddDistributedMemoryCache();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

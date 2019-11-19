@@ -8,7 +8,8 @@ namespace Livraria.Controllers
 {
     public class LivroController : Controller
     {
-        public IActionResult Index()
+       
+        public IActionResult Livraria()
         {
             return View();
         }
