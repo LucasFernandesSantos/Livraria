@@ -7,5 +7,6 @@ namespace Livraria.Models
 {
     public class Cliente
     {
+          
     }
 }
