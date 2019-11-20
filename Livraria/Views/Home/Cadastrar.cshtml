@@ -1,0 +1,66 @@
+﻿
+@*<form method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <h4 class="text-success" style="margin-bottom:30px; margin-top:30px;">Cadastro do Usuario</h4>
+        <div class="form-group" id="Modelo">
+            <div class="form-group">
+                <div class="form-inline">
+                    <input class="form-control col-md-2" style="margin-left:10px;" placeholder="CEP" asp-for="Endereco.Cep" title="CEP" />
+                    <input type="submit" value="Buscar" class="btn-outline-info form-control col-md-1" style="margin-left:10px;" asp-action="BuscarCep" asp-controller="Home" />
+                </div>
+            </div>
+           <div class="form-group">
+                <div class="form-inline">
+                    <input class="form-control col-md-2" style="margin-left:10px;" placeholder="Rua" asp-for="Endereco.Logradouro" title="Rua" readonly="" />
+                    <input class="form-control col-md-2" style="margin-left:10px;" placeholder="Bairro" asp-for="Endereco.Bairro" readonly="" title="Bairro" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-inline">
+                    <input class="form-control col-md-2" style="margin-left:10px;" placeholder="Cidade" asp-for="Endereco.Localidade" title="Cidade" readonly="" />
+                    <input class="form-control col-md-2" style="margin-left:10px;" placeholder="Estado" asp-for="Endereco.Uf" readonly="" title="Estado" />
+                </div>
+            </div>
+        </div>
+
+
+    </form>*@
+
+@model Cliente
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <fieldset style="margin-bottom:30px">
+        <legend>Dados do Endereço</legend>
+        <div class="form-group" id="Cep">
+            <label asp-for="Endereco.Cep"></label>
+            <input type="text" class="form-control" asp-for="Endereco.Cep" />
+            <span asp-validation-for="Endereco.Cep" class="text-danger"></span>
+        </div>
+        <input type="submit" value="Buscar" class="btn btn-warning"
+               asp-action="BuscarCep" asp-controller="Home" />
+        <div class="form-group" id="Rua">
+            <label asp-for="Endereco.Logradouro"></label>
+            <input type="text" class="form-control" asp-for="Endereco.Logradouro"
+                   readonly="" />
+        </div>
+        <div class="form-group" id="Bairro">
+            <label asp-for="Endereco.Bairro"></label>
+            <input type="text" class="form-control" asp-for="Endereco.Bairro"
+                   readonly="" />
+        </div>
+        <div class="form-group" id="Cidade">
+            <label asp-for="Endereco.Localidade"></label>
+            <input type="text" class="form-control" asp-for="Endereco.Localidade"
+                   readonly="" />
+        </div>
+        <div class="form-group" id="Estado">
+            <label asp-for="Endereco.Uf"></label>
+            <input type="text" class="form-control" asp-for="Endereco.Uf"
+                   readonly="" />
+        </div>
+    </fieldset>
+</form>
+
+
+
+

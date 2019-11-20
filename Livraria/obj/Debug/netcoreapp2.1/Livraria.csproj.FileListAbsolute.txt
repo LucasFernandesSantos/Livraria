@@ -76,3 +76,4 @@ C:\Users\User\Livraria\Livraria\obj\Debug\netcoreapp2.1\Livraria.pdb
 C:\Users\User\Livraria\Livraria\obj\Debug\netcoreapp2.1\Livraria.csproj.CopyComplete
 C:\Users\User\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LayoutHome.g.cshtml.cs
 C:\Users\User\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
+C:\Users\User\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Home\Cadastrar.g.cshtml.cs

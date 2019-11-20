@@ -7,11 +7,15 @@ using System.Threading.Tasks;
 
 namespace Livraria.Models
 {
-    [Table("Cliente")]
+    [Table("Clientes")]
     public class Cliente
     {
+        public Cliente()
+        {
+            Endereco = new Endereco();
+        }
         [Key]
-        public int IdCliente { get; set; }
+        public int ClienteId { get; set; }
         public string Nome { get; set; }
         public string Cpf { get; set; }
         public string Senha { get; set; }

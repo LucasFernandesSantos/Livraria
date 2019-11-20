@@ -34,6 +34,8 @@ namespace Livraria
             });
 
             services.AddScoped<LivroDAO>();
+            services.AddScoped<ClienteDAO>();
+
 
             //Criar ID de contexto
             services.AddDbContext<Context>
