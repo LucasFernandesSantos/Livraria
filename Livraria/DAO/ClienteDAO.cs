@@ -14,6 +14,17 @@ namespace Livraria.DAO
             _context = context;
         }
 
+        public bool AutenticarLogin(string cpf, string senha)
+        {
+            var result = _context.Clientes.FirstOrDefault(x => x.Cpf.Equals(cpf) && x.Senha.Equals(senha));
+            if (result != null)
+            {
+                return true;
+            }
+            return false;
+        }
+
+
         public Cliente BuscarPorID(int id)
         {
             return _context.Clientes.Find(id);
@@ -23,16 +34,16 @@ namespace Livraria.DAO
         {
             return _context.Clientes.Where(x => x.Cpf.Equals(cliente.Cpf)).FirstOrDefault();
         }
-        public bool CadastrarCliente(Cliente cliente)
+        public Cliente CadastrarCliente(Cliente cliente)
         {
             if (BuscaPorCpf(cliente) != null)
             {
-                _context.Clientes.Add(cliente);
-                _context.SaveChanges();
-                return true;
+                cliente = null;
+                return cliente;
             }
-            
-            return false;
+            _context.Clientes.Add(cliente);
+            _context.SaveChanges();
+            return cliente;
         }
         public List<Cliente> ListarTodos()
         {

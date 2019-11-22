@@ -24,6 +24,32 @@ namespace Livraria.Controllers
 
             return View();
         }
+        [HttpPost]
+        public IActionResult Index(string cpf, string senha)
+        {
+            Adm adm = new Adm();
+            if (_clienteDAO.AutenticarLogin(cpf, senha))
+            {
+                ModelState.AddModelError("", "Login OK!");
+                return RedirectToAction("Index", "Cliente"); ;
+            }
+            else if (cpf.ToUpper().Equals(adm.Login) && senha.ToUpper().Equals(adm.Senha))
+            {
+                ModelState.AddModelError("", "Login Adm!");
+                return RedirectToAction("Index", "Adm");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Login Invalido!");
+                ViewBag.Alerta = true;
+                return View();
+            }
+        }
+
+
+
+
+
         public IActionResult Cadastrar()
         {
             Cliente cliente = new Cliente();
@@ -54,15 +80,13 @@ namespace Livraria.Controllers
         [HttpPost]
         public IActionResult Cadastrar(Cliente cliente)
         {
-            if (ModelState.IsValid)
+            cliente = _clienteDAO.CadastrarCliente(cliente);
+            if (cliente == null)
             {
-                if (_clienteDAO.CadastrarCliente(cliente))
-                {
-                    return RedirectToAction("Index");
-                }
-                ModelState.AddModelError("", "Esse cpf já está sendo usado!");
+                ModelState.AddModelError("", "Cliente já cadastrado!");
+                return View(cliente);
             }
-            return View(cliente);
+            return RedirectToAction("Index");
         }
     }
 }
