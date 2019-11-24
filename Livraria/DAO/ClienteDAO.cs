@@ -24,8 +24,7 @@ namespace Livraria.DAO
             return false;
         }
 
-
-        public Cliente BuscarPorID(int id)
+        public Cliente BuscarPorID(int? id)
         {
             return _context.Clientes.Find(id);
         }
@@ -48,6 +47,17 @@ namespace Livraria.DAO
         public List<Cliente> ListarTodos()
         {
             return _context.Clientes.ToList();
+        }
+        public void EditarCliente(Cliente cliente)
+        {
+            _context.Clientes.Update(cliente);
+            _context.SaveChanges();
+        }
+
+        public void RemoverCliente(int id)
+        {
+            _context.Clientes.Remove(BuscarPorID(id));
+            _context.SaveChanges();
         }
     }
 

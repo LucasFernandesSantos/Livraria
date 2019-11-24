@@ -16,7 +16,6 @@ namespace Livraria.Models
         public string Logradouro { get; set; }
 
         [Display(Name = "CEP:")]
-        [Required(ErrorMessage = "Campo obrigatório!")]
         public string Cep { get; set; }
         [Display(Name = "Bairro:")]
         public string Bairro { get; set; }
