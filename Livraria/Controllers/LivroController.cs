@@ -47,7 +47,7 @@ namespace Livraria.Controllers
 
         public IActionResult ListLivro()
         {
-            ViewBag.DataHora = DateTime.Now;
+            ViewBag.DataHora = DateTime.Now;    
             if (!listaLivro.Any())
             {
                 return View(_livroDAO.ListarTodos());
