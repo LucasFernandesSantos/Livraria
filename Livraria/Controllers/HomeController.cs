@@ -5,6 +5,7 @@ using System.Net;
 using System.Threading.Tasks;
 using Livraria.DAO;
 using Livraria.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -27,10 +28,13 @@ namespace Livraria.Controllers
         [HttpPost]
         public IActionResult Index(string cpf, string senha)
         {
+            Cliente c = new Cliente();
+            c = _clienteDAO.AutenticarLogin(cpf, senha);
             Adm adm = new Adm();
-            if (_clienteDAO.AutenticarLogin(cpf, senha))
+            if (c != null)
             {
                 ModelState.AddModelError("", "Login OK!");
+                HttpContext.Session.SetString("ClienteId", c.ClienteId.ToString());
                 return RedirectToAction("Index", "Cliente"); ;
             }
             else if (cpf.ToUpper().Equals(adm.Login) && senha.ToUpper().Equals(adm.Senha))

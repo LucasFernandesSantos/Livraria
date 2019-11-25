@@ -14,14 +14,14 @@ namespace Livraria.DAO
             _context = context;
         }
 
-        public bool AutenticarLogin(string cpf, string senha)
+        public Cliente AutenticarLogin(string cpf, string senha)
         {
             var result = _context.Clientes.FirstOrDefault(x => x.Cpf.Equals(cpf) && x.Senha.Equals(senha));
             if (result != null)
             {
-                return true;
+                return result;
             }
-            return false;
+            return null;
         }
 
         public Cliente BuscarPorID(int? id)
