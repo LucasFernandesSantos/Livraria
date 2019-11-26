@@ -39,8 +39,6 @@ C:\Users\Aluno\Livraria\Livraria\obj\Debug\netcoreapp2.1\Livraria.AssemblyInfo.c
 C:\Users\Aluno\Livraria\Livraria\obj\Debug\netcoreapp2.1\Livraria.TagHelpers.input.cache
 C:\Users\Aluno\Livraria\Livraria\obj\Debug\netcoreapp2.1\Livraria.TagHelpers.output.cache
 C:\Users\Aluno\Livraria\Livraria\obj\Debug\netcoreapp2.1\Livraria.RazorCoreGenerate.cache
-C:\Users\Aluno\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Livro\Livraria.g.cshtml.cs
-C:\Users\Aluno\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.g.cshtml.cs
 C:\Users\Aluno\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.g.cshtml.cs
 C:\Users\Aluno\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.g.cshtml.cs
 C:\Users\Aluno\Livraria\Livraria\obj\Debug\netcoreapp2.1\Livraria.RazorTargetAssemblyInfo.cache
@@ -149,3 +147,16 @@ C:\Users\gusta\Livraria\Livraria\obj\Debug\netcoreapp2.1\Livraria.csproj.CopyCom
 C:\Users\gusta\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Livro\CadastrarLivro.g.cshtml.cs
 C:\Users\gusta\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Livro\AlterarLivro.g.cshtml.cs
 C:\Users\gusta\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Livro\ListarLivro.g.cshtml.cs
+C:\Users\Aluno\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Adm\EditarCliente.g.cshtml.cs
+C:\Users\Aluno\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Adm\Index.g.cshtml.cs
+C:\Users\Aluno\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Adm\ListCliente.g.cshtml.cs
+C:\Users\Aluno\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Cliente\Editar.g.cshtml.cs
+C:\Users\Aluno\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Cliente\Index.g.cshtml.cs
+C:\Users\Aluno\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Home\Cadastrar.g.cshtml.cs
+C:\Users\Aluno\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
+C:\Users\Aluno\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Livro\AlterarLivro.g.cshtml.cs
+C:\Users\Aluno\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Livro\CadastrarLivro.g.cshtml.cs
+C:\Users\Aluno\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Livro\ListarLivro.g.cshtml.cs
+C:\Users\Aluno\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LayoutAdm.g.cshtml.cs
+C:\Users\Aluno\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LayoutCliente.g.cshtml.cs
+C:\Users\Aluno\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LayoutHome.g.cshtml.cs

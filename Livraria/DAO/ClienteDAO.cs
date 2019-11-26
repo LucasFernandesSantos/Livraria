@@ -1,4 +1,6 @@
 ﻿using Livraria.Models;
+using Livraria.Utils;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,18 +37,21 @@ namespace Livraria.DAO
         }
         public Cliente CadastrarCliente(Cliente cliente)
         {
-            if (BuscaPorCpf(cliente) != null)
+            if (Validacao.IsValidCpf(cliente.Cpf))
             {
-                cliente = null;
-                return cliente;
+                if (BuscaPorCpf(cliente) != null)
+                {
+                    cliente = null;
+                    return cliente;
+                }
+                _context.Clientes.Add(cliente);
+                _context.SaveChanges();
             }
-            _context.Clientes.Add(cliente);
-            _context.SaveChanges();
             return cliente;
         }
         public List<Cliente> ListarTodos()
         {
-            return _context.Clientes.ToList();
+            return _context.Clientes.Include(i=>i.Endereco).ToList();
         }
         public void EditarCliente(Cliente cliente)
         {

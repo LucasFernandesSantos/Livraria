@@ -33,8 +33,11 @@ namespace Livraria.Controllers
             Adm adm = new Adm();
             if (c != null)
             {
-                ModelState.AddModelError("", "Login OK!");
-                HttpContext.Session.SetString("ClienteId", c.ClienteId.ToString());
+                if (cpf.ToUpper().Equals(c.Cpf) && senha.ToUpper().Equals(c.Senha))
+                {
+                    ModelState.AddModelError("", "Login OK!");
+                    HttpContext.Session.SetString("ClienteId", c.ClienteId.ToString());
+                }
                 return RedirectToAction("Index", "Cliente"); ;
             }
             else if (cpf.ToUpper().Equals(adm.Login) && senha.ToUpper().Equals(adm.Senha))
