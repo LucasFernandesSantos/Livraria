@@ -1,0 +1,33 @@
+﻿@model Livro
+<h2>Livraria</h2>
+
+<!--
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <fieldset style="margin-bottom:30px">
+        <legend>Dados do Livro</legend>
+        <div class="form-group" id="Tittle">
+            <label asp-for="items.volumeInfo.Title"></label>
+            <input type="text" class="form-control" asp-for="items.volumeInfo.Title" />
+            <span asp-validation-for="items.volumeInfo.Title" class="text-danger"></span>
+        </div>
+        <input type="submit" value="Buscar" class="btn btn-warning"
+               asp-action="BuscarLivro" asp-controller="Livro" />
+        <div class="form-group">
+            <label asp-for="items.volumeInfo.Authors"></label>
+            <input type="text" class="form-control" asp-for="items.volumeInfo.Authors"
+                   readonly="" />
+        </div>
+    </fieldset>
+</form>
+    -->
+<form method="post">
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="text" class="form-control" name="nome" />
+
+
+    <input type="submit" value="Buscar" class="btn btn-warning"
+           asp-action="BuscarLivro" asp-controller="Livro" />
+
+</form>

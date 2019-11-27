@@ -4,14 +4,16 @@ using Livraria.DAO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Livraria.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20191127013102_salve")]
+    partial class salve
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,30 +23,26 @@ namespace Livraria.Migrations
 
             modelBuilder.Entity("Livraria.Models.Autores", b =>
                 {
-                    b.Property<string>("IdAuthors")
+                    b.Property<string>("Authors")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Authors");
+                    b.Property<string>("VolumeInfoTitle");
 
-                    b.Property<string>("VolumeInfoIdTittle");
+                    b.HasKey("Authors");
 
-                    b.HasKey("IdAuthors");
-
-                    b.HasIndex("VolumeInfoIdTittle");
+                    b.HasIndex("VolumeInfoTitle");
 
                     b.ToTable("Autores");
                 });
 
             modelBuilder.Entity("Livraria.Models.Categories", b =>
                 {
-                    b.Property<string>("IdCategories")
+                    b.Property<string>("categories")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("ItemsId");
 
-                    b.Property<string>("categories");
-
-                    b.HasKey("IdCategories");
+                    b.HasKey("categories");
 
                     b.HasIndex("ItemsId");
 
@@ -110,11 +108,11 @@ namespace Livraria.Migrations
 
                     b.Property<string>("Volume");
 
-                    b.Property<string>("volumeInfoIdTittle");
+                    b.Property<string>("volumeInfoTitle");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("volumeInfoIdTittle");
+                    b.HasIndex("volumeInfoTitle");
 
                     b.ToTable("Items");
                 });
@@ -138,7 +136,7 @@ namespace Livraria.Migrations
 
             modelBuilder.Entity("Livraria.Models.VolumeInfo", b =>
                 {
-                    b.Property<string>("IdTittle")
+                    b.Property<string>("Title")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Description");
@@ -147,9 +145,7 @@ namespace Livraria.Migrations
 
                     b.Property<string>("Publisher");
 
-                    b.Property<string>("Title");
-
-                    b.HasKey("IdTittle");
+                    b.HasKey("Title");
 
                     b.ToTable("VolumeInfo");
                 });
@@ -158,7 +154,7 @@ namespace Livraria.Migrations
                 {
                     b.HasOne("Livraria.Models.VolumeInfo")
                         .WithMany("Authors")
-                        .HasForeignKey("VolumeInfoIdTittle");
+                        .HasForeignKey("VolumeInfoTitle");
                 });
 
             modelBuilder.Entity("Livraria.Models.Categories", b =>
@@ -179,7 +175,7 @@ namespace Livraria.Migrations
                 {
                     b.HasOne("Livraria.Models.VolumeInfo", "volumeInfo")
                         .WithMany()
-                        .HasForeignKey("volumeInfoIdTittle");
+                        .HasForeignKey("volumeInfoTitle");
                 });
 
             modelBuilder.Entity("Livraria.Models.Livro", b =>

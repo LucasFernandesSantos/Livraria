@@ -19,21 +19,21 @@ namespace Livraria.DAO
             return _context.Livros.Find(id);
         }
 
-        public Livro BuscarPorNome(Livro livro)
-        {
-            return _context.Livros.Where(x => x.items.volumeInfo.Title.Equals(livro.items.volumeInfo.Title)).FirstOrDefault();
-        }
-        public Livro CadastrarLivro(Livro livro)
-        {
-            if (BuscarPorNome(livro) != null)
-            {
-                livro = null;
-                return livro;
-            }
-            _context.Livros.Add(livro);
-            _context.SaveChanges();
-            return livro;
-        }
+        //public Livro BuscarPorNome(Livro livro)
+        //{
+        //    return _context.Livros.Where(x => x.items.volumeInfo.Title.Equals(livro.items.volumeInfo.Title)).FirstOrDefault();
+        //}
+        //public Livro CadastrarLivro(Livro livro)
+        //{
+        //    if (BuscarPorNome(livro) != null)
+        //    {
+        //        livro = null;
+        //        return livro;
+        //    }
+        //    _context.Livros.Add(livro);
+        //    _context.SaveChanges();
+        //    return livro;
+        //}
 
         public List<Livro> ListarTodos()
         {

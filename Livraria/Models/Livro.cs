@@ -16,7 +16,7 @@ namespace Livraria.Models
 
     
         public string PageCoutn { get; set; }
-        public Items items { get; set; }
+        public List<Items> items { get; set; } = new List<Items>();
 
 
     }
@@ -36,8 +36,9 @@ namespace Livraria.Models
     public class VolumeInfo
     {
         [Key]
+        public string IdTittle { get; set; }
         public string Title { get; set; }
-        public List<Autores> Authors { get; set; } = new List<Autores>();
+        string[] Authors { get; set; }
         public string Publisher { get; set; }
         public string PublishedDate { get; set; }
         public string Description { get; set; }
@@ -45,11 +46,13 @@ namespace Livraria.Models
     public class Autores
     {
         [Key]
+        public string IdAuthors { get; set; }
         public string Authors { get; set; }
     }
     public class Categories
     {
         [Key]
+        public string IdCategories { get; set; }
         public string categories { get; set; }
     }
 }
