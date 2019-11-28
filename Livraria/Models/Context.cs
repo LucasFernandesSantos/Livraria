@@ -13,5 +13,7 @@ namespace Livraria.DAO
         public DbSet<Livro> Livros { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Endereco> Enderecos { get; set; }
+        public DbSet<ReservaLivro> Reservas { get; set; }
+        public DbSet<DevolucaoLivro> Devolucoes { get; set; }
     }
 }

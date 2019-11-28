@@ -48,7 +48,7 @@ namespace Livraria.Controllers
 
         public IActionResult ListLivro()
         {
-            ViewBag.DataHora = DateTime.Now;    
+            ViewBag.DataHora = DateTime.Now;
             if (!listaLivro.Any())
             {
                 return View(_livroDAO.ListarTodos());
@@ -78,17 +78,26 @@ namespace Livraria.Controllers
         public IActionResult BuscarLivro(String nome)
         {
             Livro livro = new Livro();
-          
-           
-           
-             string  url = "https://www.googleapis.com/books/v1/volumes?q=intitle:" + nome;
-            
-                WebClient client = new WebClient();
-                livro = JsonConvert.DeserializeObject<Livro>(client.DownloadString(url));
-                TempData["Livro"] = JsonConvert.SerializeObject(livro);
-            
+           string url = "https://www.googleapis.com/books/v1/volumes?q=intitle:" + nome;
+
+            WebClient client = new WebClient();
+            livro = JsonConvert.DeserializeObject<Livro>(client.DownloadString(url));
+            TempData["Livro"] = JsonConvert.SerializeObject(livro);
+
             return RedirectToAction("Livraria");
-            
+
         }
-    }
+
+//        [HttpPost]
+//        public IActionResult BuscarCep(string cep)
+//        {
+//            Enderec0 Enderec0 = new Enderec0();
+//            string url = "http://cep.la/" + cep;
+//            WebClient client = new WebClient();
+//            Enderec0 = JsonConvert.DeserializeObject<Enderec0>(client.DownloadString(url));
+//            TempData["Enderec0"] = JsonConvert.SerializeObject(Enderec0);
+
+//            return RedirectToAction("Livraria");
+//        }
+  }
 }

@@ -13,6 +13,8 @@ namespace Livraria.Models
         public Cliente()
         {
             Endereco = new Endereco();
+            ReservaLivro = new List<ReservaLivro>();
+            DevolucaoLivro = new List<DevolucaoLivro>();
         }
         [Key]
         public int ClienteId { get; set; }
@@ -23,5 +25,7 @@ namespace Livraria.Models
         public string Email { get; set; }
         public string Telefone { get; set; }
         public Endereco Endereco { get; set; }
+        public List<ReservaLivro> ReservaLivro { get; set; }
+        public List<DevolucaoLivro> DevolucaoLivro { get; set; }
     }
 }

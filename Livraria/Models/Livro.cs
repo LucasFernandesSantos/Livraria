@@ -10,7 +10,8 @@ namespace Livraria.Models
     [Table("Livros")]
     public class Livro
     {
-       
+        
+
         [Key]
         public int IdLivro { get; set; }
 
@@ -55,4 +56,7 @@ namespace Livraria.Models
         public string IdCategories { get; set; }
         public string categories { get; set; }
     }
+   
+
+    
 }

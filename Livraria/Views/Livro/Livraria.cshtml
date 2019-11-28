@@ -21,13 +21,24 @@
     </fieldset>
 </form>
     -->
+@*<form method="post">
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="text" class="form-control" name="nome" />
+
+
+        <input type="submit" value="Buscar" class="btn btn-warning"
+               asp-action="BuscarLivro" asp-controller="Livro" />
+
+    </form>*@
+
 <form method="post">
 
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <input type="text" class="form-control" name="nome" />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="text" class="form-control" name="cep" />
 
 
-    <input type="submit" value="Buscar" class="btn btn-warning"
-           asp-action="BuscarLivro" asp-controller="Livro" />
+        <input type="submit" value="Buscar" class="btn btn-warning"
+               asp-action="BuscarCep" asp-controller="Livro" />
 
-</form>
+    </form>

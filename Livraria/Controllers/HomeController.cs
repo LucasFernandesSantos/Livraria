@@ -53,10 +53,6 @@ namespace Livraria.Controllers
             }
         }
 
-
-
-
-
         public IActionResult Cadastrar()
         {
             Cliente cliente = new Cliente();
@@ -70,17 +66,12 @@ namespace Livraria.Controllers
         [HttpPost]
         public IActionResult BuscarCep(Cliente cliente)
         {
-            try
-            {
-                string url = "https://viacep.com.br/ws/" + cliente.Endereco.Cep + "/json/";
+
+            string url = "https://webmaniabr.com/api/1/cep/" + cliente.Endereco.Cep + "/?app_key=7TRb9YmYdVHx4TLW0Sn0cjXvFXNKmiFM&app_secret=bLeSbUHqpGF0Xr4oRv9WKwmwjkGZhJQsUcyzt7DTQoW16IOV";
                 WebClient client = new WebClient();
                 cliente.Endereco = JsonConvert.DeserializeObject<Endereco>(client.DownloadString(url));
                 TempData["Cliente"] = JsonConvert.SerializeObject(cliente);
-            }
-            catch (Exception)
-            {
-                //Mostrar uma mensagem para o usuário
-            }
+          
             return RedirectToAction("Cadastrar");
         }
 
