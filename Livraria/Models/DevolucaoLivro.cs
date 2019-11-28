@@ -13,6 +13,6 @@ namespace Livraria.Models
         [Key]
         public int IdDevolucaoLivro { get; set; }  
         public Cliente Cliente { get; set; }
-        public Livro Livro { get; set; }
+        //public Livro Livro { get; set; }
     }
 }

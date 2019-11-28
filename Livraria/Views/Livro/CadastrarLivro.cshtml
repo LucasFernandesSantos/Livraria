@@ -1,7 +1,127 @@
-﻿
-@{
-    ViewData["Title"] = "CadastrarLivro";
-}
+﻿@model DadosLivro
+<h2>Cadastro LIVRO</h2>
+<!--
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <fieldset style="margin-bottom:30px">
+        <legend>Dados do Livro</legend>
+        <div class="form-group" id="Tittle">
+            <label asp-for="items.volumeInfo.Title"></label>
+            <input type="text" class="form-control" asp-for="items.volumeInfo.Title" />
+            <span asp-validation-for="items.volumeInfo.Title" class="text-danger"></span>
+        </div>
+        <input type="submit" value="Buscar" class="btn btn-warning"
+               asp-action="BuscarLivro" asp-controller="Livro" />
+        <div class="form-group">
+            <label asp-for="items.volumeInfo.Authors"></label>
+            <input type="text" class="form-control" asp-for="items.volumeInfo.Authors"
+                   readonly="" />
+        </div>
+    </fieldset>
+</form>
+    -->
+@*<form method="post">
 
-<h2>CadastrarLivro</h2>
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="text" class="form-control" name="nome" />
 
+
+    <input type="submit" value="Buscar" class="btn btn-warning"
+           asp-action="BuscarLivro" asp-controller="Livro" />
+    <div class="form-group">
+        <label asp-for="Authors"></label>
+        <input type="text" class="form-control" asp-for="Authors[0]" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <input type="text" class="form-control" asp-for="Title" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Publisher"></label>
+        <input type="text" class="form-control" asp-for="Publisher" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea rows="5" style="height:150px" class="form-control" asp-for="Description"></textarea>
+
+    </div>*@
+
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <h4 class="text-success" style="color:black; margin-bottom:30px; margin-top:30px"><b> - Cadastro Livro</b></h4>
+    <div class="form-group" id="CEP">
+        <div class="form-group">
+            <div class="form-inline">
+                <input class="form-control col-md-2" style="margin-left:5px;" placeholder="Titulo" name="nome" title="Titulo" />
+
+                <input type="submit" value="Buscar" class="btn-outline-info form-control col-md-1" style="margin-left:10px;"
+                       asp-action="BuscarLivro" asp-controller="Livro" />
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="form-inline">
+                <div>
+                    <label class="text-info"></label>
+                </div>
+                <input class="form-control col-md-3" style="margin-left:5px;" placeholder="Titulo" asp-for="Title" title="Titulo" readonly="" />
+                <div>
+                    <label class="text-info"></label>
+                </div>
+                <input class="form-control col-md-3" style="margin-left:5px;" placeholder="Autor" asp-for="Authors[0]" readonly="" title="Autor" />
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="form-inline">
+                <div>
+                    <label class="text-info"></label>
+                </div>
+                <input type="date" class="form-control col-md-3" style="margin-left:5px;" placeholder="Data de publicação" asp-for="PublishedDate" title="Data de publicação" readonly="" />
+                <div>
+                    <label class="text-info"></label>
+                </div>
+                <input class="form-control col-md-3" style="margin-left:5px;" placeholder="Editora" asp-for="Publisher" readonly="" title="Editora" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-inline">
+                <div>
+                    <label class="text-info"></label>
+                </div>
+                <textarea rows="5" style="height:150px; margin-left:5px;" class="form-control col-md-6" placeholder="Descrição" asp-for="Description" readonly="" title="Descrição"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-inline">
+                <input type="submit" value="Cadastar" class="btn-outline-success form-control col-md-4" style="margin-left:10px;" asp-action="CadastrarLivro" asp-controller="Livro" />
+            </div>
+        </div>
+
+    </div>
+
+    <style>
+        body {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: url(https://abrilsuperinteressante.files.wordpress.com/2018/04/bibliotecas.png) no-repeat center center fixed;
+            background-size: cover;
+            background-position: center;
+            -webkit-filter: blur(0px);
+        }
+    </style>
+
+</form>
+@*<form method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="text" class="form-control" name="cep" />
+
+        <input type="submit" value="Buscar" class="btn btn-warning"
+               asp-action="BuscarLivro" asp-controller="Livro" />
+
+    </form>*@

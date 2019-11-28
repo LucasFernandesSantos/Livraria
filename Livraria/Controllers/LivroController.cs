@@ -19,85 +19,115 @@ namespace Livraria.Controllers
             _livroDAO = livroDAO;
         }
 
-        public IActionResult Livraria()
-        {
-            return View();
-        }
-
         public IActionResult CadastrarLivro()
         {
-            Livro livro = new Livro();
-            if (TempData["Livro"] != null)
+            DadosLivro dados = new DadosLivro();
+            if (TempData["DadosLivro"] != null)
             {
-                livro = JsonConvert.DeserializeObject<Livro>(TempData["Livro"].ToString());
+                dados = JsonConvert.DeserializeObject<DadosLivro>(TempData["DadosLivro"].ToString());
             }
-            return View(livro);
-        }
-
-        //[HttpPost]
-        //public IActionResult CadastrarLivro(Livro livro)
-        //{
-        //    livro = _livroDAO.CadastrarLivro(livro);
-        //    if (livro == null)
-        //    {
-        //        ModelState.AddModelError("", "Livro já cadastrado!");
-        //        return View(livro);
-        //    }
-        //    return RedirectToAction("Index");
-        //}
-
-        public IActionResult ListLivro()
-        {
-            ViewBag.DataHora = DateTime.Now;
-            if (!listaLivro.Any())
-            {
-                return View(_livroDAO.ListarTodos());
-            }
-            return View(listaLivro);
-        }
-
-        public IActionResult EditarLivro(int id)
-        {
-            var result = View(_livroDAO.BuscarPorID(id));
-            return result;
-        }
-        public IActionResult RemoverLivro(int id)
-        {
-            _livroDAO.RemoverLivro(id);
-            return RedirectToAction("ListLivro");
+            return View(dados);
         }
 
         [HttpPost]
-        public IActionResult EditarLivro(Livro livro)
-        {
-            _livroDAO.EditarLivro(livro);
-            return RedirectToAction("ListLivro");
-        }
-
-        [HttpPost]
-        public IActionResult BuscarLivro(String nome)
+        public IActionResult BuscarLivro(string nome)
         {
             Livro livro = new Livro();
-           string url = "https://www.googleapis.com/books/v1/volumes?q=intitle:" + nome;
+            DadosLivro dados = new DadosLivro();
+            string url = "https://www.googleapis.com/books/v1/volumes?q=intitle:" + nome;
 
             WebClient client = new WebClient();
             livro = JsonConvert.DeserializeObject<Livro>(client.DownloadString(url));
-            TempData["Livro"] = JsonConvert.SerializeObject(livro);
 
-            return RedirectToAction("Livraria");
+            for (int i = 0; 1 < livro.items.Count; i++)
+            {
+                dados.Authors = livro.items[0].volumeInfo.Authors;
+                dados.Title = livro.items[0].volumeInfo.Title;
+                dados.Publisher = livro.items[0].volumeInfo.Publisher;
+                dados.PublishedDate = livro.items[0].volumeInfo.PublishedDate;
+                dados.Description = livro.items[0].volumeInfo.Description;
+                break;
+            }
+            //foreach (var item in livro.items)
+            //{
+            //    dados.Authors = item.volumeInfo.Authors;
+            //    dados.Title = item.volumeInfo.Title;
+            //    dados.Publisher = item.volumeInfo.Publisher;
+            //    dados.PublishedDate = item.volumeInfo.PublishedDate;
+            //    dados.Description = item.volumeInfo.Description;
+            //}
+            TempData["DadosLivro"] = JsonConvert.SerializeObject(dados);
+
+            return RedirectToAction("CadastrarLivro");
 
         }
+    }
+}
+
+//      //[HttpPost]
+//        //public IActionResult CadastrarLivro(Livro livro)
+//        //{
+//        //    livro = _livroDAO.CadastrarLivro(livro);
+//        //    if (livro == null)
+//        //    {
+////        //        ModelState.AddModelError("", "Livro já cadastrado!");
+////        //        return View(livro);
+////        //    }
+////        //    return RedirectToAction("Index");
+////        //}
+
+//        public IActionResult ListLivro()
+//        {
+//            ViewBag.DataHora = DateTime.Now;
+//            if (!listaLivro.Any())
+//            {
+//                return View(_livroDAO.ListarTodos());
+//            }
+//            return View(listaLivro);
+//        }
+
+//        public IActionResult EditarLivro(int id)
+//        {
+//            var result = View(_livroDAO.BuscarPorID(id));
+//            return result;
+//        }
+//        public IActionResult RemoverLivro(int id)
+//        {
+//            _livroDAO.RemoverLivro(id);
+//            return RedirectToAction("ListLivro");
+//        }
 
 //        [HttpPost]
-//        public IActionResult BuscarCep(string cep)
+//        public IActionResult EditarLivro(Livro livro)
 //        {
-//            Enderec0 Enderec0 = new Enderec0();
-//            string url = "http://cep.la/" + cep;
+//            _livroDAO.EditarLivro(livro);
+//            return RedirectToAction("ListLivro");
+//        }
+
+//        [HttpPost]
+//        public IActionResult BuscarLivro(String nome)
+//        {
+//            Livro livro = new Livro();
+//           string url = "https://www.googleapis.com/books/v1/volumes?q=intitle:" + nome;
+
 //            WebClient client = new WebClient();
-//            Enderec0 = JsonConvert.DeserializeObject<Enderec0>(client.DownloadString(url));
-//            TempData["Enderec0"] = JsonConvert.SerializeObject(Enderec0);
+//            livro = JsonConvert.DeserializeObject<Livro>(client.DownloadString(url));
+//            TempData["Livro"] = JsonConvert.SerializeObject(livro);
 
 //            return RedirectToAction("Livraria");
+
 //        }
-  }
-}
+
+////        [HttpPost]
+////        public IActionResult BuscarCep(string cep)
+////        {
+////            Enderec0 Enderec0 = new Enderec0();
+////            string url = "http://cep.la/" + cep;
+////            WebClient client = new WebClient();
+////            Enderec0 = JsonConvert.DeserializeObject<Enderec0>(client.DownloadString(url));
+////            TempData["Enderec0"] = JsonConvert.SerializeObject(Enderec0);
+
+////            return RedirectToAction("Livraria");
+////        }
+//  }
+//}

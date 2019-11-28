@@ -14,10 +14,26 @@ namespace Livraria.DAO
             _context = context;
         }
 
-        public Livro BuscarPorID(int? id)
+        public DadosLivro BuscarPorNome(DadosLivro dados)
         {
-            return _context.Livros.Find(id);
+            return _context.Dados.Where(x => x.Authors.Equals(dados.Authors)).FirstOrDefault();
         }
+        public DadosLivro CadastrarLivro(DadosLivro dados)
+        {
+            if (BuscarPorNome(dados) != null)
+            {
+                dados = null;
+                return dados;
+            }
+            _context.Dados.Add(dados);
+            _context.SaveChanges();
+            return dados;
+        }
+
+        //public Livro BuscarPorID(int? id)
+        //{
+        //    return _context.Livros.Find(id);
+        //}
 
         //public Livro BuscarPorNome(Livro livro)
         //{
@@ -35,21 +51,21 @@ namespace Livraria.DAO
         //    return livro;
         //}
 
-        public List<Livro> ListarTodos()
-        {
-            return _context.Livros.ToList();
-        }
+        //public List<Livro> ListarTodos()
+        //{
+        //    return _context.Livros.ToList();
+        //}
 
-        public void EditarLivro(Livro livro)
-        {
-            _context.Livros.Update(livro);
-            _context.SaveChanges();
-        }
+        //public void EditarLivro(Livro livro)
+        //{
+        //    _context.Livros.Update(livro);
+        //    _context.SaveChanges();
+        //}
 
-        public void RemoverLivro(int id)
-        {
-            _context.Livros.Remove(BuscarPorID(id));
-            _context.SaveChanges();
-        }
+        //public void RemoverLivro(int id)
+        //{
+        //    _context.Livros.Remove(BuscarPorID(id));
+        //    _context.SaveChanges();
+        //}
     }
 }

@@ -14,7 +14,6 @@ namespace Livraria.Models
         public int EnderecoId { get; set; }
         [Display(Name = "Rua:")]
         public string endereco { get; set; }
-
         [Display(Name = "CEP:")]
         public string Cep { get; set; }
         [Display(Name = "Bairro:")]

@@ -153,7 +153,7 @@ using Livraria.Models;
             WriteLiteral("</td>\r\n\r\n\r\n\r\n            <td>\r\n                ");
             EndContext();
             BeginContext(799, 96, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3c5df2ab9a504739802829a9d61dd0c4", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4c63dd9492cd4e99b667ed2dc1f3119c", async() => {
                 BeginContext(884, 7, true);
                 WriteLiteral("Remover");
                 EndContext();
@@ -189,7 +189,7 @@ using Livraria.Models;
             WriteLiteral("\r\n            </td>\r\n            <td>\r\n                ");
             EndContext();
             BeginContext(950, 96, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a41e7ed5af6748abb9ce6392c4622d6c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "80978901e8ad4c998d9cb34584a65a49", async() => {
                 BeginContext(1035, 7, true);
                 WriteLiteral("Alterar");
                 EndContext();

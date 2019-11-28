@@ -68,7 +68,7 @@ using Livraria.Models;
             WriteLiteral("<!DOCTYPE html>\r\n\r\n<html>\r\n");
             EndContext();
             BeginContext(27, 575, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "810fe498faa84ce490eaba54ae717384", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "212818d68dfb4829a604203167524372", async() => {
                 BeginContext(33, 72, true);
                 WriteLiteral("\r\n    <meta name=\"viewport\" content=\"width=device-width\" />\r\n    <title>");
                 EndContext();
@@ -83,7 +83,7 @@ using Livraria.Models;
                 WriteLiteral("</title>\r\n    ");
                 EndContext();
                 BeginContext(133, 72, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "332a5ff32d854b3684209036e4896131", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "4fc4cf6c0b6248d2a91224b0370d8f39", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -124,12 +124,12 @@ using Livraria.Models;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(604, 1712, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "93cb6577a10246ec8a3b0e3b530667e2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8dc3f4d9aa244e80be5296ba1882b624", async() => {
                 BeginContext(610, 236, true);
                 WriteLiteral("\r\n    <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\r\n        <div class=\"collapse navbar-collapse\" id=\"navbarColor02\">\r\n            <ul class=\"navbar-nav mr-auto\">\r\n                <li class=\"nav-item\">\r\n                    ");
                 EndContext();
                 BeginContext(846, 72, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "07651b10d1ca42b8966bab255330b916", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c4a6133850db4f62a1c5504a519a038a", async() => {
                     BeginContext(910, 4, true);
                     WriteLiteral("Home");
                     EndContext();
@@ -154,7 +154,7 @@ using Livraria.Models;
                 WriteLiteral("\r\n                </li>\r\n                <li class=\"navbar-nav mr-auto\">\r\n                    ");
                 EndContext();
                 BeginContext(1012, 74, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "78c5a8a830ce49599787382cd3fda274", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "57a3da9bf5984a99b6d2b4ed84faa8fc", async() => {
                     BeginContext(1077, 5, true);
                     WriteLiteral("Livro");
                     EndContext();
@@ -185,7 +185,7 @@ using Livraria.Models;
                         ");
                 EndContext();
                 BeginContext(1531, 80, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cc3624b01da74e29ae250452e4e93a3b", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1a499aab75f542af8d623571ed470291", async() => {
                     BeginContext(1601, 6, true);
                     WriteLiteral("Editar");
                     EndContext();
@@ -210,7 +210,7 @@ using Livraria.Models;
                 WriteLiteral("\r\n                        <div class=\"dropdown-divider\"></div>\r\n                        ");
                 EndContext();
                 BeginContext(1699, 89, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "194e2c5f9c84496c830ffbeea9fe28ca", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e60c0144815b4cfaa5824afac09e92d0", async() => {
                     BeginContext(1771, 13, true);
                     WriteLiteral("Excluir conta");
                     EndContext();
@@ -235,7 +235,7 @@ using Livraria.Models;
                 WriteLiteral("\r\n                        <div class=\"dropdown-divider\"></div>\r\n                        ");
                 EndContext();
                 BeginContext(1876, 76, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ef2d080ef0a444f5b6067e02e73ffbbb", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "87b18cbfb5184431aec51dbc260154ec", async() => {
                     BeginContext(1942, 6, true);
                     WriteLiteral("Logout");
                     EndContext();

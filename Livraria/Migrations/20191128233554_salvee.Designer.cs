@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Livraria.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20191128003113_lalala")]
-    partial class lalala
+    [Migration("20191128233554_salvee")]
+    partial class salvee
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,22 +20,6 @@ namespace Livraria.Migrations
                 .HasAnnotation("ProductVersion", "2.1.11-servicing-32099")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("Livraria.Models.Categories", b =>
-                {
-                    b.Property<string>("IdCategories")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("ItemsId");
-
-                    b.Property<string>("categories");
-
-                    b.HasKey("IdCategories");
-
-                    b.HasIndex("ItemsId");
-
-                    b.ToTable("Categories");
-                });
 
             modelBuilder.Entity("Livraria.Models.Cliente", b =>
                 {
@@ -64,6 +48,29 @@ namespace Livraria.Migrations
                     b.ToTable("Clientes");
                 });
 
+            modelBuilder.Entity("Livraria.Models.DadosLivro", b =>
+                {
+                    b.Property<int>("DadosLivroId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("PublishedDate");
+
+                    b.Property<string>("Publisher");
+
+                    b.Property<int>("Quantidade");
+
+                    b.Property<string>("Title");
+
+                    b.Property<string>("Volume");
+
+                    b.HasKey("DadosLivroId");
+
+                    b.ToTable("DadosLivros");
+                });
+
             modelBuilder.Entity("Livraria.Models.DevolucaoLivro", b =>
                 {
                     b.Property<int>("IdDevolucaoLivro")
@@ -72,13 +79,9 @@ namespace Livraria.Migrations
 
                     b.Property<int?>("ClienteId");
 
-                    b.Property<int?>("LivroIdLivro");
-
                     b.HasKey("IdDevolucaoLivro");
 
                     b.HasIndex("ClienteId");
-
-                    b.HasIndex("LivroIdLivro");
 
                     b.ToTable("DevolucaoLivros");
                 });
@@ -104,43 +107,6 @@ namespace Livraria.Migrations
                     b.ToTable("Enderecos");
                 });
 
-            modelBuilder.Entity("Livraria.Models.Items", b =>
-                {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("AvarageRating");
-
-                    b.Property<int?>("LivroIdLivro");
-
-                    b.Property<int>("Quantidade");
-
-                    b.Property<string>("Volume");
-
-                    b.Property<string>("volumeInfoIdTittle");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("LivroIdLivro");
-
-                    b.HasIndex("volumeInfoIdTittle");
-
-                    b.ToTable("Items");
-                });
-
-            modelBuilder.Entity("Livraria.Models.Livro", b =>
-                {
-                    b.Property<int>("IdLivro")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("PageCoutn");
-
-                    b.HasKey("IdLivro");
-
-                    b.ToTable("Livros");
-                });
-
             modelBuilder.Entity("Livraria.Models.ReservaLivro", b =>
                 {
                     b.Property<int>("IdReservaLivro")
@@ -159,34 +125,7 @@ namespace Livraria.Migrations
 
                     b.HasIndex("ClienteId");
 
-                    b.HasIndex("LivroId");
-
                     b.ToTable("ReservaLivros");
-                });
-
-            modelBuilder.Entity("Livraria.Models.VolumeInfo", b =>
-                {
-                    b.Property<string>("IdTittle")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Description");
-
-                    b.Property<string>("PublishedDate");
-
-                    b.Property<string>("Publisher");
-
-                    b.Property<string>("Title");
-
-                    b.HasKey("IdTittle");
-
-                    b.ToTable("VolumeInfo");
-                });
-
-            modelBuilder.Entity("Livraria.Models.Categories", b =>
-                {
-                    b.HasOne("Livraria.Models.Items")
-                        .WithMany("categories")
-                        .HasForeignKey("ItemsId");
                 });
 
             modelBuilder.Entity("Livraria.Models.Cliente", b =>
@@ -201,21 +140,6 @@ namespace Livraria.Migrations
                     b.HasOne("Livraria.Models.Cliente", "Cliente")
                         .WithMany("DevolucaoLivro")
                         .HasForeignKey("ClienteId");
-
-                    b.HasOne("Livraria.Models.Livro", "Livro")
-                        .WithMany()
-                        .HasForeignKey("LivroIdLivro");
-                });
-
-            modelBuilder.Entity("Livraria.Models.Items", b =>
-                {
-                    b.HasOne("Livraria.Models.Livro")
-                        .WithMany("items")
-                        .HasForeignKey("LivroIdLivro");
-
-                    b.HasOne("Livraria.Models.VolumeInfo", "volumeInfo")
-                        .WithMany()
-                        .HasForeignKey("volumeInfoIdTittle");
                 });
 
             modelBuilder.Entity("Livraria.Models.ReservaLivro", b =>
@@ -223,11 +147,6 @@ namespace Livraria.Migrations
                     b.HasOne("Livraria.Models.Cliente", "Cliente")
                         .WithMany("ReservaLivro")
                         .HasForeignKey("ClienteId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Livraria.Models.Livro", "Livro")
-                        .WithMany()
-                        .HasForeignKey("LivroId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
