@@ -15,6 +15,7 @@ namespace Livraria.Models
         //genero
         public int Quantidade { get; set; }
         public string Volume { get; set; }
+        public string Autor { get; set; }
         [NotMapped]
         public string[] Authors { get; set; }
         public string Title { get; set; }

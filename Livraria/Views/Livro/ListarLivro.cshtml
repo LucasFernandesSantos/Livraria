@@ -1,7 +1,34 @@
-﻿
-@{
-    ViewData["Title"] = "ListarLivro";
-}
+﻿@model List<DadosLivro>
 
-<h2>ListarLivro</h2>
 
+<a asp-controller="Livro" class="btn btn-outline-success col-md-2" asp-action="CadastrarLivro">Cadastrar</a>
+<br /><br />
+<table class="table table-hover table-striped">
+    <thead>
+        <tr class="table-dark">
+            <th>Titulo</th>
+            <th>Editora</th>
+            <th>Data de publicação</th>
+            <th>Autor</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (DadosLivro item in Model)
+        {
+        <tr class="table-success">
+            <td>@item.Title</td>
+            <td>@item.Publisher</td>
+            <td>@item.PublishedDate</td>
+            <td>@item.Autor</td>
+
+
+
+
+
+
+        </tr>
+        }
+    </tbody>
+</table>

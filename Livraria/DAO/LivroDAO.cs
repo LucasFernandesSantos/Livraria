@@ -14,13 +14,18 @@ namespace Livraria.DAO
             _context = context;
         }
 
-        public DadosLivro BuscarPorNome(DadosLivro dados)
+        public List<DadosLivro> ListarLivro()
         {
-            return _context.Dados.Where(x => x.Authors.Equals(dados.Authors)).FirstOrDefault();
+            return _context.Dados.ToList();
+        }
+
+        public DadosLivro BuscarPorTitulo(DadosLivro dados)
+        {
+            return _context.Dados.Where(x => x.Title.Equals(dados.Title)).FirstOrDefault();
         }
         public DadosLivro CadastrarLivro(DadosLivro dados)
         {
-            if (BuscarPorNome(dados) != null)
+            if (BuscarPorTitulo(dados) != null)
             {
                 dados = null;
                 return dados;
@@ -29,6 +34,7 @@ namespace Livraria.DAO
             _context.SaveChanges();
             return dados;
         }
+
 
         //public Livro BuscarPorID(int? id)
         //{

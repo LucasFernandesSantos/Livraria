@@ -18,7 +18,16 @@ namespace Livraria.Controllers
         {
             _livroDAO = livroDAO;
         }
+        public IActionResult ListarLivro()
+        {
+           
+            if (!listaLivro.Any())
+            {
+                return View(_livroDAO.ListarLivro());
+            }
+            return View(listaLivro);
 
+        }
         public IActionResult CadastrarLivro()
         {
             DadosLivro dados = new DadosLivro();
@@ -28,6 +37,17 @@ namespace Livraria.Controllers
             }
             return View(dados);
         }
+        [HttpPost]
+       public IActionResult CadastrarLivro(DadosLivro dados)
+       {
+            dados = _livroDAO.CadastrarLivro(dados);
+            if (dados == null)
+           {
+               ModelState.AddModelError("", "Livro já cadastrado!");
+                return View(dados);
+            }
+           return RedirectToAction("ListarLivro");
+      }
 
         [HttpPost]
         public IActionResult BuscarLivro(string nome)
