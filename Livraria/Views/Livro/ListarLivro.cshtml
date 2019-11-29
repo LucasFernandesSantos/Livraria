@@ -17,18 +17,21 @@
     <tbody>
         @foreach (DadosLivro item in Model)
         {
-        <tr class="table-success">
-            <td>@item.Title</td>
-            <td>@item.Publisher</td>
-            <td>@item.PublishedDate</td>
-            <td>@item.Autor</td>
+            <tr class="table-success">
+                <td>@item.Title</td>
+                <td>@item.Publisher</td>
+                <td>@item.PublishedDate</td>
+                <td>@item.Autor</td>
 
 
+                <td>
+                    <a class="btn btn-danger" asp-action="RemoverLivro" asp-route-id="@item.DadosLivroId">Remover</a>
+                </td>
+                <td>
+                    <a class="btn btn-warning" asp-action="EditarLivro" asp-route-id="@item.DadosLivroId">Alterar</a>
 
-
-
-
-        </tr>
+                </td>
+            </tr>
         }
     </tbody>
 </table>

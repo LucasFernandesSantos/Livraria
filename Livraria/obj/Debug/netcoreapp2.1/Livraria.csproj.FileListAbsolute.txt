@@ -158,7 +158,7 @@ C:\Users\Aluno\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Livro\Lista
 C:\Users\Aluno\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LayoutAdm.g.cshtml.cs
 C:\Users\Aluno\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LayoutCliente.g.cshtml.cs
 C:\Users\Aluno\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LayoutHome.g.cshtml.cs
-C:\Users\User\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Livro\AlterarLivro.g.cshtml.cs
 C:\Users\User\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Livro\CadastrarLivro.g.cshtml.cs
 C:\Users\User\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Livro\ListarLivro.g.cshtml.cs
 C:\Users\User\Livraria\Livraria\obj\Debug\netcoreapp2.1\Livraria.csprojAssemblyReference.cache
+C:\Users\User\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Livro\EditarLivro.g.cshtml.cs

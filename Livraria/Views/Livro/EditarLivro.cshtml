@@ -1,0 +1,24 @@
+﻿@model DadosLivro
+<form asp-action="EditarLivro" method="post">
+    <input type="hidden" asp-for="DadosLivroId" />
+   
+    <div class="form-group">
+        <div class="form-inline">
+            <input class="form-control col-md-3" style="margin-left:5px;" placeholder="Titulo" asp-for="Title" title="Titulo" />
+            <input class="form-control col-md-3" style="margin-left:5px;" placeholder="Autor" asp-for="Autor" title="Autor" />
+
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-inline">
+            <input  class="form-control col-md-3" style="margin-left:5px;" placeholder="Data de publicação" asp-for="Publisher" title="Date" />
+            <input  class="form-control col-md-3" style="margin-left:5px;" placeholder="Telefone" asp-for="PublishedDate" title="Telefone" />
+
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-inline">
+            <button class="btn btn-outline-success col-md-6" style="margin-left:10px;" type="submit">Salvar</button>
+        </div>
+    </div>
+    </form>

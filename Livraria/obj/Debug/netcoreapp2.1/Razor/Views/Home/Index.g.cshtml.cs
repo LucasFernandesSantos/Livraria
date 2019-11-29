@@ -87,7 +87,7 @@ using Livraria.Models;
 ");
             EndContext();
             BeginContext(833, 570, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "67bc885228034c09b323ebd09c374f23", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e3d564de7514881b5a4bd0f53388be2", async() => {
                 BeginContext(872, 431, true);
                 WriteLiteral(@"
 
@@ -101,7 +101,7 @@ using Livraria.Models;
     ");
                 EndContext();
                 BeginContext(1303, 89, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "09a5570cbb9d4184b0e42bc0101af0c5", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bcaa2ba791a6445dbbf69d1b8c6e009e", async() => {
                     BeginContext(1370, 18, true);
                     WriteLiteral("<b>Cadastre-se</b>");
                     EndContext();

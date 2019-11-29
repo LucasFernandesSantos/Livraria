@@ -23,6 +23,16 @@ namespace Livraria.DAO
         {
             return _context.Dados.Where(x => x.Title.Equals(dados.Title)).FirstOrDefault();
         }
+
+        public void RemoverLivro(int id)
+        {
+            _context.Dados.Remove(BuscarPorID(id));
+            _context.SaveChanges();
+        }
+        public DadosLivro BuscarPorID(int? id)
+        {
+            return _context.Dados.Find(id);
+        }
         public DadosLivro CadastrarLivro(DadosLivro dados)
         {
             if (BuscarPorTitulo(dados) != null)
@@ -33,6 +43,11 @@ namespace Livraria.DAO
             _context.Dados.Add(dados);
             _context.SaveChanges();
             return dados;
+        }
+        public void EditarLivro(DadosLivro dados)
+        {
+            _context.Dados.Update(dados);
+            _context.SaveChanges();
         }
 
 

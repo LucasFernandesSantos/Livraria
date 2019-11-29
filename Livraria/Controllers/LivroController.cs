@@ -20,13 +20,18 @@ namespace Livraria.Controllers
         }
         public IActionResult ListarLivro()
         {
-           
+
             if (!listaLivro.Any())
             {
                 return View(_livroDAO.ListarLivro());
             }
             return View(listaLivro);
 
+        }
+        public IActionResult RemoverLivro(int id)
+        {
+            _livroDAO.RemoverLivro(id);
+            return RedirectToAction("ListarLivro");
         }
         public IActionResult CadastrarLivro()
         {
@@ -37,17 +42,31 @@ namespace Livraria.Controllers
             }
             return View(dados);
         }
+
+
+        public IActionResult EditarLivro(int id)
+        {
+            var result = View(_livroDAO.BuscarPorID(id));
+            return result;
+        }
         [HttpPost]
-       public IActionResult CadastrarLivro(DadosLivro dados)
-       {
+        public IActionResult EditarLivro(DadosLivro dados)
+        {
+            _livroDAO.EditarLivro(dados);
+            return RedirectToAction("ListarLivro");
+        }
+
+        [HttpPost]
+        public IActionResult CadastrarLivro(DadosLivro dados)
+        {
             dados = _livroDAO.CadastrarLivro(dados);
             if (dados == null)
-           {
-               ModelState.AddModelError("", "Livro já cadastrado!");
+            {
+                ModelState.AddModelError("", "Livro já cadastrado!");
                 return View(dados);
             }
-           return RedirectToAction("ListarLivro");
-      }
+            return RedirectToAction("ListarLivro");
+        }
 
         [HttpPost]
         public IActionResult BuscarLivro(string nome)

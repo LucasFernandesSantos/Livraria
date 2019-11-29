@@ -2,7 +2,7 @@
 <form method="post">
 
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <h4 class="text-success" style="color:black; margin-bottom:30px; margin-top:30px"><b> - Cadastro CEP</b></h4>
+    <h4 class="" style="color:darkgreen; background-color:wheat; margin-bottom:30px; margin-top:30px"><b> -- Cadastro CEP --</b></h4>
     <div class="form-group" id="CEP">
         <div class="form-group">
             <div class="form-inline">
@@ -38,7 +38,7 @@
             </div>
         </div>
     </div>
-    <h4 class="text-success" style="margin-bottom:30px; margin-top:30px;">Cadastro Usuario</h4>
+    <h4 class="" style="margin-bottom:30px; color:darkgreen; background-color:wheat; margin-top:30px;">-- Cadastro Cliente --</h4>
     <div class="form-group" id="Cliente">
         <div class="form-group">
             <div class="form-inline">
@@ -48,7 +48,7 @@
     </div>
     <div class="form-group">
         <div class="form-inline">
-            <input  class="form-control col-md-2" style="margin-left:10px;" placeholder="CPF" asp-for="Cpf" title="CPF" />
+            <input class="form-control col-md-2" style="margin-left:10px;" placeholder="CPF" asp-for="Cpf" title="CPF" />
             <input type="password" class="form-control col-md-2" style="margin-left:10px;" placeholder="Senha" asp-for="Senha" title="Senha" />
 
         </div>
@@ -70,6 +70,7 @@
             <input type="submit" value="Cadastar" class="btn-outline-success form-control col-md-4" style="margin-left:10px;" asp-action="Cadastrar" asp-controller="Home" />
         </div>
     </div>
+    <h4 class="" style="color:black; color:darkgreen; background-color:wheat; margin-bottom:30px; margin-top:30px"><b> ___________________________________________________________________________________________________</b></h4>
     <style>
         body {
             position: fixed;
@@ -82,8 +83,6 @@
             background-position: center;
             -webkit-filter: blur(0px);
         }
-
-        
     </style>
 </form>
 
