@@ -5,6 +5,7 @@ using System.Net;
 using System.Threading.Tasks;
 using Livraria.DAO;
 using Livraria.Models;
+using Livraria.Utils;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -47,7 +48,7 @@ namespace Livraria.Controllers
             }
             else
             {
-                ModelState.AddModelError("", "Login Invalido!");
+                ModelState.AddModelError("", "Login Inválido!");
                 ViewBag.Alerta = true;
                 return View();
             }
@@ -86,5 +87,6 @@ namespace Livraria.Controllers
             }
             return RedirectToAction("Index");
         }
+
     }
 }

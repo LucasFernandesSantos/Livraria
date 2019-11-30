@@ -6,21 +6,30 @@ using System.Threading.Tasks;
 using Livraria.DAO;
 using Livraria.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
 
 namespace Livraria.Controllers
 {
     public class LivroController : Controller
     {
+        private readonly GeneroDAO _generoDAO;
         private readonly LivroDAO _livroDAO;
         public static List<Livro> listaLivro = new List<Livro>();
-        public LivroController(LivroDAO livroDAO)
+        public LivroController(LivroDAO livroDAO, GeneroDAO generoDAO) 
         {
             _livroDAO = livroDAO;
+            _generoDAO = generoDAO;
+        }
+
+        public IActionResult Cadastrar()
+        {
+            ViewBag.Generos =
+                new SelectList(_generoDAO.ListarTodosGeneros(), "GeneroId", "Nome");
+            return View();
         }
         public IActionResult ListarLivro()
         {
-
             if (!listaLivro.Any())
             {
                 return View(_livroDAO.ListarLivro());
@@ -57,9 +66,12 @@ namespace Livraria.Controllers
         }
 
         [HttpPost]
-        public IActionResult CadastrarLivro(DadosLivro dados)
+        public IActionResult CadastrarLivro(DadosLivro dados, int drpGeneros)
         {
+           
+            ViewBag.Generos = new SelectList(_generoDAO.ListarTodosGeneros(), "GeneroId", "Nome");
             dados = _livroDAO.CadastrarLivro(dados);
+            dados.Genero = _generoDAO.BuscarGeneroPorId(drpGeneros);
             if (dados == null)
             {
                 ModelState.AddModelError("", "Livro já cadastrado!");

@@ -1,0 +1,25 @@
+﻿@model Genero
+<form asp-action="EditarGenero" method="post">
+    <input type="hidden" asp-for="GeneroId" />
+    <div class="form-group">
+        <div class="form-group">
+            <div class="form-inline">
+                <input class="form-control col-md-4" style="margin-left:10px;" placeholder="Nome" asp-for="Nome" title="Nome" />
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-group">
+            <div class="form-inline">
+                <input class="form-control col-md-4" style="margin-left:10px;" placeholder="Descrição" asp-for="Descricao" title="Descrição" />
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-inline">
+            <button class="btn btn-outline-success col-md-4" type="submit">Salvar</button>
+        </div>
+    </div>
+
+
+</form>

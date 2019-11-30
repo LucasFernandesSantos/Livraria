@@ -4,14 +4,16 @@ using Livraria.DAO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Livraria.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20191129224958_lalllalllla")]
+    partial class lalllalllla
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -56,8 +58,6 @@ namespace Livraria.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<int?>("GeneroId");
-
                     b.Property<string>("PublishedDate");
 
                     b.Property<string>("Publisher");
@@ -71,8 +71,6 @@ namespace Livraria.Migrations
                     b.Property<string>("Volume");
 
                     b.HasKey("DadosLivroId");
-
-                    b.HasIndex("GeneroId");
 
                     b.ToTable("DadosLivros");
                 });
@@ -156,13 +154,6 @@ namespace Livraria.Migrations
                     b.HasOne("Livraria.Models.Endereco", "Endereco")
                         .WithMany()
                         .HasForeignKey("EnderecoId");
-                });
-
-            modelBuilder.Entity("Livraria.Models.DadosLivro", b =>
-                {
-                    b.HasOne("Livraria.Models.Genero", "Genero")
-                        .WithMany()
-                        .HasForeignKey("GeneroId");
                 });
 
             modelBuilder.Entity("Livraria.Models.DevolucaoLivro", b =>

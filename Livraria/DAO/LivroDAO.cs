@@ -1,4 +1,5 @@
 ﻿using Livraria.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +41,8 @@ namespace Livraria.DAO
                 dados = null;
                 return dados;
             }
+
+            dados.Status = "Disponível";
             _context.Dados.Add(dados);
             _context.SaveChanges();
             return dados;
@@ -50,6 +53,10 @@ namespace Livraria.DAO
             _context.SaveChanges();
         }
 
+        public List<DadosLivro> ListarPorGenero(int? id)
+        {
+            return _context.Dados.Include(x => x.Genero).Where(x => x.Genero.GeneroId == id).ToList();
+        }
 
         //public Livro BuscarPorID(int? id)
         //{

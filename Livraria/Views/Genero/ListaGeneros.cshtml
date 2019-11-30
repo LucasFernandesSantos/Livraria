@@ -1,0 +1,31 @@
+﻿@model List<Genero>
+
+<h2>ListaGeneros</h2>
+
+<table class="table table-hover table-striped">
+<thead>
+    <tr class="table-dark">
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th></th>
+        <th></th>
+    </tr>
+</thead>
+<tbody>
+    @foreach (Genero item in Model)
+    {
+        <tr class="table-success">
+            <td>@item.Nome</td>
+            <td>@item.Descricao</td>
+
+            <td>
+                <a class="btn btn-danger" asp-action="RemoverGenero" asp-route-id="@item.GeneroId">Remover</a>
+            </td>
+            <td>
+                <a class="btn btn-warning" asp-action="EditarGenero" asp-route-id="@item.GeneroId">Alterar</a>
+
+            </td>
+        </tr>
+    }
+</tbody>
+</table>
