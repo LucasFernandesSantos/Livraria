@@ -125,6 +125,10 @@ C:\Users\User\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Livro\Cadast
 C:\Users\User\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Livro\ListarLivro.g.cshtml.cs
 C:\Users\User\Livraria\Livraria\obj\Debug\netcoreapp2.1\Livraria.csprojAssemblyReference.cache
 C:\Users\User\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Livro\EditarLivro.g.cshtml.cs
+C:\Users\User\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Categoria\Create.g.cshtml.cs
+C:\Users\User\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Categoria\Index.g.cshtml.cs
+C:\Users\User\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Cliente\ListarLivro.g.cshtml.cs
+C:\Users\User\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Cliente\Detalhes.g.cshtml.cs
 C:\Users\gusta\Livraria\Livraria\bin\Debug\netcoreapp2.1\Livraria.deps.json
 C:\Users\gusta\Livraria\Livraria\bin\Debug\netcoreapp2.1\Livraria.runtimeconfig.json
 C:\Users\gusta\Livraria\Livraria\bin\Debug\netcoreapp2.1\Livraria.runtimeconfig.dev.json
@@ -145,8 +149,10 @@ C:\Users\gusta\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Adm\Index.g
 C:\Users\gusta\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Adm\ListCliente.g.cshtml.cs
 C:\Users\gusta\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Categoria\Create.g.cshtml.cs
 C:\Users\gusta\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Categoria\Index.g.cshtml.cs
+C:\Users\gusta\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Cliente\Detalhes.g.cshtml.cs
 C:\Users\gusta\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Cliente\Editar.g.cshtml.cs
 C:\Users\gusta\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Cliente\Index.g.cshtml.cs
+C:\Users\gusta\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Cliente\ListarLivro.g.cshtml.cs
 C:\Users\gusta\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Home\Cadastrar.g.cshtml.cs
 C:\Users\gusta\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
 C:\Users\gusta\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Livro\CadastrarLivro.g.cshtml.cs
@@ -164,7 +170,3 @@ C:\Users\gusta\Livraria\Livraria\obj\Debug\netcoreapp2.1\Livraria.dll
 C:\Users\gusta\Livraria\Livraria\obj\Debug\netcoreapp2.1\Livraria.pdb
 C:\Users\gusta\Livraria\Livraria\obj\Debug\netcoreapp2.1\Livraria.csproj.CopyComplete
 C:\Users\gusta\Livraria\Livraria\obj\Debug\netcoreapp2.1\Livraria.csprojAssemblyReference.cache
-C:\Users\User\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Categoria\Create.g.cshtml.cs
-C:\Users\User\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Categoria\Index.g.cshtml.cs
-C:\Users\User\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Cliente\ListarLivro.g.cshtml.cs
-C:\Users\User\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Cliente\Detalhes.g.cshtml.cs

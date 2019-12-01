@@ -24,6 +24,12 @@ namespace Livraria.DAO
             return _context.Dados.Where(x => x.Status.Equals("Disponivel")).ToList();
         }
 
+        public List<DadosLivro> ListarTodos()
+        {
+            return _context.Dados.Include(x => x.Categoria).ToList();
+        }
+
+
         public DadosLivro BuscarPorTitulo(DadosLivro dados)
         {
             return _context.Dados.FirstOrDefault(x => x.Title.Equals(dados.Title));

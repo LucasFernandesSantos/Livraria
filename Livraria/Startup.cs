@@ -41,7 +41,7 @@ namespace Livraria
 
             //Criar ID de contexto
             services.AddDbContext<Context>
-                (options => options.UseSqlServer
+                (options => options.UseSqlServer    
                 (Configuration.GetConnectionString("Livraria")));
 
             //Configurar a sessão ANTES do services.AddMvc()

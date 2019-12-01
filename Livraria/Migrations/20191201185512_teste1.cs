@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Livraria.Migrations
 {
-    public partial class Sort : Migration
+    public partial class teste1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -44,8 +44,6 @@ namespace Livraria.Migrations
                 {
                     DadosLivroId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Quantidade = table.Column<int>(nullable: false),
-                    Volume = table.Column<string>(nullable: true),
                     Autor = table.Column<string>(nullable: true),
                     Title = table.Column<string>(nullable: true),
                     Publisher = table.Column<string>(nullable: true),
@@ -53,7 +51,9 @@ namespace Livraria.Migrations
                     Description = table.Column<string>(nullable: true),
                     Status = table.Column<string>(nullable: true),
                     CategoriaId = table.Column<int>(nullable: true),
-                    Imagem = table.Column<string>(nullable: true)
+                    Imagem = table.Column<string>(nullable: true),
+                    Genero = table.Column<string>(nullable: true),
+                    Descricao = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

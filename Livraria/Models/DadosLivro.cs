@@ -14,8 +14,6 @@ namespace Livraria.Models
 
         [Key]
         public int DadosLivroId { get; set; }
-        public int Quantidade { get; set; }
-        public string Volume { get; set; }
         public string Autor { get; set; }
         [NotMapped]
         public string[] Authors { get; set; }

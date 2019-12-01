@@ -81,13 +81,9 @@ namespace Livraria.Migrations
 
                     b.Property<string>("Publisher");
 
-                    b.Property<int>("Quantidade");
-
                     b.Property<string>("Status");
 
                     b.Property<string>("Title");
-
-                    b.Property<string>("Volume");
 
                     b.HasKey("DadosLivroId");
 

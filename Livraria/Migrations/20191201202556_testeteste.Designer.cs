@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Livraria.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20191201050238_Sort")]
-    partial class Sort
+    [Migration("20191201202556_testeteste")]
+    partial class testeteste
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -71,7 +71,11 @@ namespace Livraria.Migrations
 
                     b.Property<int?>("CategoriaId");
 
+                    b.Property<string>("Descricao");
+
                     b.Property<string>("Description");
+
+                    b.Property<string>("Genero");
 
                     b.Property<string>("Imagem");
 
@@ -79,13 +83,9 @@ namespace Livraria.Migrations
 
                     b.Property<string>("Publisher");
 
-                    b.Property<int>("Quantidade");
-
                     b.Property<string>("Status");
 
                     b.Property<string>("Title");
-
-                    b.Property<string>("Volume");
 
                     b.HasKey("DadosLivroId");
 

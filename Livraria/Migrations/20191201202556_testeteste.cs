@@ -2,7 +2,7 @@
 
 namespace Livraria.Migrations
 {
-    public partial class descricaol : Migration
+    public partial class testeteste : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
