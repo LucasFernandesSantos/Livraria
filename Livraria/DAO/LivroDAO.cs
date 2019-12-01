@@ -22,7 +22,7 @@ namespace Livraria.DAO
 
         public DadosLivro BuscarPorTitulo(DadosLivro dados)
         {
-            return _context.Dados.Where(x => x.Title.Equals(dados.Title)).FirstOrDefault();
+            return _context.Dados.FirstOrDefault(x => x.Title.Equals(dados.Title));
         }
 
         public void RemoverLivro(int id)
@@ -34,41 +34,27 @@ namespace Livraria.DAO
         {
             return _context.Dados.Find(id);
         }
-
         public bool CadastrarLivro(DadosLivro dados)
         {
             if (BuscarPorTitulo(dados) == null)
             {
-                dados.Status = "Disponível";
                 _context.Dados.Add(dados);
                 _context.SaveChanges();
                 return true;
             }
             return false;
         }
-        //public DadosLivro CadastrarLivro(DadosLivro dados)
-        //{
-        //    if (BuscarPorTitulo(dados) != null)
-        //    {
-        //        dados = null;
-        //        return dados;
-        //    }
-
-        //    dados.Status = "Disponível";
-        //    _context.Dados.Add(dados);
-        //    _context.SaveChanges();
-        //    return dados;
-        //}
         public void EditarLivro(DadosLivro dados)
         {
             _context.Dados.Update(dados);
             _context.SaveChanges();
         }
 
-        public List<DadosLivro> ListarPorGenero(int? id)
+        public List<DadosLivro> ListarPorCategoria(int? id)
         {
-            return _context.Dados.Include(x => x.Genero).Where(x => x.Genero.GeneroId == id).ToList();
+            return _context.Dados.Include(x => x.Categoria).Where(x => x.Categoria.CategoriaId == id).ToList();
         }
+
 
         //public Livro BuscarPorID(int? id)
         //{

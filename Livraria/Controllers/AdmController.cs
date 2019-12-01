@@ -47,6 +47,6 @@ namespace Livraria.Controllers
             _clienteDAO.EditarCliente(cliente);
             return RedirectToAction("ListCliente");
         }
-      
+
     }
 }

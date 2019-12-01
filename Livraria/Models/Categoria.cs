@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Livraria.Models
 {
-    [Table("Genero")]
-    public class Genero
+    [Table("Categorias")]
+    public class Categoria
     {
         [Key]
-        public int GeneroId { get; set; }
+        public int CategoriaId { get; set; }
 
-        
+
         public string Nome { get; set; }
-
-        public string Descricao { get; set; }
     }
 }
+

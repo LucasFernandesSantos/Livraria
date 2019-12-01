@@ -10,10 +10,7 @@ namespace Livraria.Models
     [Table("DadosLivros")]
     public class DadosLivro
     {
-        public DadosLivro()
-        {
-            Genero = new Genero();
-        }
+       
 
         [Key]
         public int DadosLivroId { get; set; }
@@ -27,7 +24,7 @@ namespace Livraria.Models
         public string PublishedDate { get; set; }
         public string Description { get; set; }
         public string Status { get; set; }
-        public Genero Genero { get; set; }
+        public Categoria Categoria { get; set; }
         public string Imagem { get; set; }
     }
 }

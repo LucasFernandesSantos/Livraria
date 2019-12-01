@@ -19,6 +19,19 @@ namespace Livraria.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Livraria.Models.Categoria", b =>
+                {
+                    b.Property<int>("CategoriaId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Nome");
+
+                    b.HasKey("CategoriaId");
+
+                    b.ToTable("Categorias");
+                });
+
             modelBuilder.Entity("Livraria.Models.Cliente", b =>
                 {
                     b.Property<int>("ClienteId")
@@ -54,9 +67,9 @@ namespace Livraria.Migrations
 
                     b.Property<string>("Autor");
 
-                    b.Property<string>("Description");
+                    b.Property<int?>("CategoriaId");
 
-                    b.Property<int?>("GeneroId");
+                    b.Property<string>("Description");
 
                     b.Property<string>("Imagem");
 
@@ -74,7 +87,7 @@ namespace Livraria.Migrations
 
                     b.HasKey("DadosLivroId");
 
-                    b.HasIndex("GeneroId");
+                    b.HasIndex("CategoriaId");
 
                     b.ToTable("DadosLivros");
                 });
@@ -115,21 +128,6 @@ namespace Livraria.Migrations
                     b.ToTable("Enderecos");
                 });
 
-            modelBuilder.Entity("Livraria.Models.Genero", b =>
-                {
-                    b.Property<int>("GeneroId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Descricao");
-
-                    b.Property<string>("Nome");
-
-                    b.HasKey("GeneroId");
-
-                    b.ToTable("Genero");
-                });
-
             modelBuilder.Entity("Livraria.Models.ReservaLivro", b =>
                 {
                     b.Property<int>("IdReservaLivro")
@@ -137,6 +135,8 @@ namespace Livraria.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("ClienteId");
+
+                    b.Property<int?>("DadosLivroId");
 
                     b.Property<DateTime>("DataDevolucaoLivro");
 
@@ -147,6 +147,8 @@ namespace Livraria.Migrations
                     b.HasKey("IdReservaLivro");
 
                     b.HasIndex("ClienteId");
+
+                    b.HasIndex("DadosLivroId");
 
                     b.ToTable("ReservaLivros");
                 });
@@ -160,9 +162,9 @@ namespace Livraria.Migrations
 
             modelBuilder.Entity("Livraria.Models.DadosLivro", b =>
                 {
-                    b.HasOne("Livraria.Models.Genero", "Genero")
+                    b.HasOne("Livraria.Models.Categoria", "Categoria")
                         .WithMany()
-                        .HasForeignKey("GeneroId");
+                        .HasForeignKey("CategoriaId");
                 });
 
             modelBuilder.Entity("Livraria.Models.DevolucaoLivro", b =>
@@ -178,6 +180,10 @@ namespace Livraria.Migrations
                         .WithMany("ReservaLivro")
                         .HasForeignKey("ClienteId")
                         .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Livraria.Models.DadosLivro", "DadosLivro")
+                        .WithMany()
+                        .HasForeignKey("DadosLivroId");
                 });
 #pragma warning restore 612, 618
         }

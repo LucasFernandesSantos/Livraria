@@ -10,7 +10,6 @@
             <th>Editora</th>
             <th>Data de publicação</th>
             <th>Autor</th>
-            <th>Status</th>
             <th>Imagem</th>
             <th></th>
             <th></th>
@@ -24,12 +23,10 @@
                 <td>@item.Publisher</td>
                 <td>@item.PublishedDate</td>
                 <td>@item.Autor</td>
-                <td>@item.Status</td>
                 <td>
-                    <img src="~/livrariaimagens/@item.Imagem " />
-
+                    <img src="~/livrariaimagens/@item.Imagem"
+                         class="img-thumbnail" />
                 </td>
-
 
                 <td>
                     <a class="btn btn-danger" asp-action="RemoverLivro" asp-route-id="@item.DadosLivroId">Remover</a>

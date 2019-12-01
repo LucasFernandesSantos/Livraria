@@ -1,11 +1,10 @@
-﻿    using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Livraria.DAO;
 using Livraria.Models;
-using Livraria.Utils;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -48,7 +47,7 @@ namespace Livraria.Controllers
             }
             else
             {
-                ModelState.AddModelError("", "Login Inválido!");
+                ModelState.AddModelError("", "Login Invalido!");
                 ViewBag.Alerta = true;
                 return View();
             }
@@ -69,10 +68,10 @@ namespace Livraria.Controllers
         {
 
             string url = "https://webmaniabr.com/api/1/cep/" + cliente.Endereco.Cep + "/?app_key=7TRb9YmYdVHx4TLW0Sn0cjXvFXNKmiFM&app_secret=bLeSbUHqpGF0Xr4oRv9WKwmwjkGZhJQsUcyzt7DTQoW16IOV";
-                WebClient client = new WebClient();
-                cliente.Endereco = JsonConvert.DeserializeObject<Endereco>(client.DownloadString(url));
-                TempData["Cliente"] = JsonConvert.SerializeObject(cliente);
-          
+            WebClient client = new WebClient();
+            cliente.Endereco = JsonConvert.DeserializeObject<Endereco>(client.DownloadString(url));
+            TempData["Cliente"] = JsonConvert.SerializeObject(cliente);
+
             return RedirectToAction("Cadastrar");
         }
 
@@ -87,6 +86,5 @@ namespace Livraria.Controllers
             }
             return RedirectToAction("Index");
         }
-
     }
 }

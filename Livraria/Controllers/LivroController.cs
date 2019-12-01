@@ -16,25 +16,19 @@ namespace Livraria.Controllers
 {
     public class LivroController : Controller
     {
-        private readonly GeneroDAO _generoDAO;
         private readonly LivroDAO _livroDAO;
-        public static List<Livro> listaLivro = new List<Livro>();
+        private readonly CategoriaDAO _categoriaDAO;
         private readonly IHostingEnvironment _hosting;
-        public LivroController(LivroDAO livroDAO, GeneroDAO generoDAO, IHostingEnvironment hosting) 
+        public static List<Livro> listaLivro = new List<Livro>();
+        public LivroController(LivroDAO livroDAO, CategoriaDAO categoriaDAO, IHostingEnvironment hosting)
         {
             _livroDAO = livroDAO;
-            _generoDAO = generoDAO;
+            _categoriaDAO = categoriaDAO;
             _hosting = hosting;
-        }
-
-        public IActionResult Cadastrar()
-        {
-            ViewBag.Generos =
-                new SelectList(_generoDAO.ListarTodosGeneros(), "GeneroId", "Nome", "Descricao");
-            return View();
         }
         public IActionResult ListarLivro()
         {
+
             if (!listaLivro.Any())
             {
                 return View(_livroDAO.ListarLivro());
@@ -53,6 +47,7 @@ namespace Livraria.Controllers
             if (TempData["DadosLivro"] != null)
             {
                 dados = JsonConvert.DeserializeObject<DadosLivro>(TempData["DadosLivro"].ToString());
+                ViewBag.Categorias = new SelectList(_categoriaDAO.ListarTodos(), "CategoriaId", "Nome");
             }
             return View(dados);
         }
@@ -71,9 +66,9 @@ namespace Livraria.Controllers
         }
 
         [HttpPost]
-        public IActionResult CadastrarLivro(DadosLivro dados, int drpGeneros, IFormFile fupImagem)
+        public IActionResult CadastrarLivro(DadosLivro dados, int drpCategorias, IFormFile fupImagem)
         {
-            ViewBag.Categorias = new SelectList(_generoDAO.ListarTodosGeneros(), "GeneroId", "Nome", "Descricao");
+            ViewBag.Categorias = new SelectList(_categoriaDAO.ListarTodos(), "CategoriaId", "Nome");
 
             if (ModelState.IsValid)
             {
@@ -86,10 +81,11 @@ namespace Livraria.Controllers
                 }
                 else
                 {
-                    dados.Imagem = "leedopai.jpg";
-                }
-                dados.Genero = _generoDAO.BuscarGeneroPorId(drpGeneros);
+                    dados.Imagem = "leedopai.png";
 
+                }
+
+                dados.Categoria = _categoriaDAO.BuscarPorId(drpCategorias);
                 if (_livroDAO.CadastrarLivro(dados))
                 {
                     return RedirectToAction("ListarLivro");
@@ -97,34 +93,9 @@ namespace Livraria.Controllers
                 ModelState.AddModelError("", "Esse produto já existe!");
                 return View(dados);
             }
-            ViewBag.d = "show";
+            ViewBag.salvar = "show";
             return View(dados);
         }
-        //[HttpPost]
-        //public IActionResult CadastrarLivro(DadosLivro dados, int drpGeneros, IFormFile fupImagem)
-        //{
-
-            //    ViewBag.Generos = new SelectList(_generoDAO.ListarTodosGeneros(), "GeneroId", "Nome");
-            //    dados = _livroDAO.CadastrarLivro(dados);
-            //    dados.Genero = _generoDAO.BuscarGeneroPorId(drpGeneros);
-            //    if (fupImagem != null)
-            //    {
-            //        string arquivo = Guid.NewGuid().ToString() + Path.GetExtension(fupImagem.FileName);
-            //        string caminho = Path.Combine(_hosting.WebRootPath, "livrariaimagens", arquivo);
-            //        fupImagem.CopyTo(new FileStream(caminho, FileMode.Create));
-            //        dados.Imagem = arquivo;
-            //    }
-            //    else
-            //    {
-            //        dados.Imagem = "leedopai.jpg";
-            //    }
-            //    if (dados == null)
-            //    {
-            //        ModelState.AddModelError("", "Livro já cadastrado!");
-            //        return View(dados);
-            //    }
-            //    return RedirectToAction("ListarLivro");
-            //}
 
         [HttpPost]
         public IActionResult BuscarLivro(string nome)

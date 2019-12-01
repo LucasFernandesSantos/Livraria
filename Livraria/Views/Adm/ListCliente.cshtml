@@ -10,7 +10,6 @@
             <th>Email</th>
             <th>Telefone</th>
             <th>CEP</th>
-        
 
             <th></th>
             <th></th>
@@ -19,26 +18,25 @@
     <tbody>
         @foreach (Cliente item in Model)
         {
-        <tr class="table-success">
-            <td>@item.Nome</td>
-            <td>@item.Cpf</td>
-            <td>@item.Senha</td>
-            <td>@item.DataNascimento</td>
-            <td>@item.Email</td>
-            <td>@item.Telefone</td>
-            <td>@item.Endereco.Cep</td>
-       
+            <tr class="table-success">
+                <td>@item.Nome</td>
+                <td>@item.Cpf</td>
+                <td>@item.Senha</td>
+                <td>@item.DataNascimento</td>
+                <td>@item.Email</td>
+                <td>@item.Telefone</td>
+                <td>@item.Endereco.Cep</td>
 
 
 
-            <td>
-                <a class="btn btn-danger" asp-action="RemoverCliente" asp-route-id="@item.ClienteId">Remover</a>
-            </td>
-            <td>
-                <a class="btn btn-warning" asp-action="EditarCliente" asp-route-id="@item.ClienteId">Alterar</a>
+                <td>
+                    <a class="btn btn-danger" asp-action="RemoverCliente" asp-route-id="@item.ClienteId">Remover</a>
+                </td>
+                <td>
+                    <a class="btn btn-warning" asp-action="EditarCliente" asp-route-id="@item.ClienteId">Alterar</a>
 
-            </td>
-        </tr>
+                </td>
+            </tr>
         }
     </tbody>
 </table>

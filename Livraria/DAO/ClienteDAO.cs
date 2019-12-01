@@ -51,7 +51,7 @@ namespace Livraria.DAO
         }
         public List<Cliente> ListarTodos()
         {
-            return _context.Clientes.Include(i=>i.Endereco).ToList();
+            return _context.Clientes.Include(i => i.Endereco).ToList();
         }
         public void EditarCliente(Cliente cliente)
         {

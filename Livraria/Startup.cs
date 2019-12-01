@@ -35,7 +35,7 @@ namespace Livraria
 
             services.AddScoped<LivroDAO>();
             services.AddScoped<ClienteDAO>();
-            services.AddScoped<GeneroDAO>();
+            services.AddScoped<CategoriaDAO>();
             services.AddHttpContextAccessor();
 
 

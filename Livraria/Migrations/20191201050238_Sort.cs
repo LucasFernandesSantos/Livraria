@@ -4,10 +4,23 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Livraria.Migrations
 {
-    public partial class oi : Migration
+    public partial class Sort : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Categorias",
+                columns: table => new
+                {
+                    CategoriaId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Nome = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Categorias", x => x.CategoriaId);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Enderecos",
                 columns: table => new
@@ -26,17 +39,31 @@ namespace Livraria.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Genero",
+                name: "DadosLivros",
                 columns: table => new
                 {
-                    GeneroId = table.Column<int>(nullable: false)
+                    DadosLivroId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Nome = table.Column<string>(nullable: true),
-                    Descricao = table.Column<string>(nullable: true)
+                    Quantidade = table.Column<int>(nullable: false),
+                    Volume = table.Column<string>(nullable: true),
+                    Autor = table.Column<string>(nullable: true),
+                    Title = table.Column<string>(nullable: true),
+                    Publisher = table.Column<string>(nullable: true),
+                    PublishedDate = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true),
+                    Status = table.Column<string>(nullable: true),
+                    CategoriaId = table.Column<int>(nullable: true),
+                    Imagem = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Genero", x => x.GeneroId);
+                    table.PrimaryKey("PK_DadosLivros", x => x.DadosLivroId);
+                    table.ForeignKey(
+                        name: "FK_DadosLivros_Categorias_CategoriaId",
+                        column: x => x.CategoriaId,
+                        principalTable: "Categorias",
+                        principalColumn: "CategoriaId",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -61,34 +88,6 @@ namespace Livraria.Migrations
                         column: x => x.EnderecoId,
                         principalTable: "Enderecos",
                         principalColumn: "EnderecoId",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "DadosLivros",
-                columns: table => new
-                {
-                    DadosLivroId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Quantidade = table.Column<int>(nullable: false),
-                    Volume = table.Column<string>(nullable: true),
-                    Autor = table.Column<string>(nullable: true),
-                    Title = table.Column<string>(nullable: true),
-                    Publisher = table.Column<string>(nullable: true),
-                    PublishedDate = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true),
-                    Status = table.Column<string>(nullable: true),
-                    GeneroId = table.Column<int>(nullable: true),
-                    Imagem = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_DadosLivros", x => x.DadosLivroId);
-                    table.ForeignKey(
-                        name: "FK_DadosLivros_Genero_GeneroId",
-                        column: x => x.GeneroId,
-                        principalTable: "Genero",
-                        principalColumn: "GeneroId",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -119,6 +118,7 @@ namespace Livraria.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     DataReservaLivro = table.Column<DateTime>(nullable: false),
                     DataDevolucaoLivro = table.Column<DateTime>(nullable: false),
+                    DadosLivroId = table.Column<int>(nullable: true),
                     ClienteId = table.Column<int>(nullable: false),
                     LivroId = table.Column<int>(nullable: false)
                 },
@@ -131,6 +131,12 @@ namespace Livraria.Migrations
                         principalTable: "Clientes",
                         principalColumn: "ClienteId",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ReservaLivros_DadosLivros_DadosLivroId",
+                        column: x => x.DadosLivroId,
+                        principalTable: "DadosLivros",
+                        principalColumn: "DadosLivroId",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -139,9 +145,9 @@ namespace Livraria.Migrations
                 column: "EnderecoId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DadosLivros_GeneroId",
+                name: "IX_DadosLivros_CategoriaId",
                 table: "DadosLivros",
-                column: "GeneroId");
+                column: "CategoriaId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_DevolucaoLivros_ClienteId",
@@ -152,13 +158,15 @@ namespace Livraria.Migrations
                 name: "IX_ReservaLivros_ClienteId",
                 table: "ReservaLivros",
                 column: "ClienteId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ReservaLivros_DadosLivroId",
+                table: "ReservaLivros",
+                column: "DadosLivroId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "DadosLivros");
-
             migrationBuilder.DropTable(
                 name: "DevolucaoLivros");
 
@@ -166,13 +174,16 @@ namespace Livraria.Migrations
                 name: "ReservaLivros");
 
             migrationBuilder.DropTable(
-                name: "Genero");
-
-            migrationBuilder.DropTable(
                 name: "Clientes");
 
             migrationBuilder.DropTable(
+                name: "DadosLivros");
+
+            migrationBuilder.DropTable(
                 name: "Enderecos");
+
+            migrationBuilder.DropTable(
+                name: "Categorias");
         }
     }
 }
