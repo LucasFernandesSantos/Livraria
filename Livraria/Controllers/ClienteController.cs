@@ -11,9 +11,11 @@ namespace Livraria.Controllers
 {
     public class ClienteController : Controller
     {
+        private readonly LivroDAO _livroDAO;
         private readonly ClienteDAO _clienteDAO;
-        public ClienteController(ClienteDAO clienteDAO)
+        public ClienteController(ClienteDAO clienteDAO,LivroDAO livroDAO)
         {
+            _livroDAO = livroDAO;
             _clienteDAO = clienteDAO;
         }
 
@@ -22,6 +24,15 @@ namespace Livraria.Controllers
             return View();
         }
 
+        public IActionResult ListarLivro()
+        {
+            return View(_livroDAO.ListarLivroDisponivel());
+        }
+
+        public IActionResult Detalhes(int id)
+        {
+            return View(_livroDAO.BuscarPorID(id));
+        }
         public IActionResult Editar()
         {
             var resul = HttpContext.Session.GetString("ClienteId");

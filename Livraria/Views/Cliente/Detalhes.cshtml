@@ -1,0 +1,17 @@
+﻿@model DadosLivro
+<a asp-action="ListarLivro" class="btn-outline-success form-control col-md-1" style="margin-left:10px;"asp-controller="Cliente">Voltar</a><br />
+<table>
+
+    <tr>
+        <td>
+            <img src="~/livrariaimagens/@Model.Imagem" class="rounded" style="width:300px;height:250px" />
+        </td>
+        <td style="vertical-align:top;padding-left:10px">
+            <b>Autor:</b>
+            <p>@Model.Autor</p>
+            <b>Modelo:</b>
+            <p>@Model.Title</p>
+        </td>
+    </tr>
+</table>
+

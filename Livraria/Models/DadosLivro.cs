@@ -26,5 +26,7 @@ namespace Livraria.Models
         public string Status { get; set; }
         public Categoria Categoria { get; set; }
         public string Imagem { get; set; }
+        public string Genero { get; set; }
+        public string Descricao { get; set; }
     }
 }

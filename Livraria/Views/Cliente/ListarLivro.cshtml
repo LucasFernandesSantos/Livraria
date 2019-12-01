@@ -1,0 +1,30 @@
+﻿@model List<DadosLivro>
+
+<h4 class="text-info">Livros</h4>
+<div id="Categorias">
+    <ul class="pagination pagination-lg justify-content-center" style="margin:20px 0">
+        @foreach (Categoria item in ViewBag.Categorias)
+        {
+            <li class="page-item">
+                <a class="page-link" asp-action="ListarLivro" asp-controller="Cliente" asp-route-id="@item.CategoriaId">
+                    @item.Nome
+                </a>
+            </li>
+        }
+    </ul>
+</div>
+<div class="row" id="Dados">
+    @foreach (DadosLivro item in Model)
+    {
+
+        <div class="col-md-3" style="text-align:center; margin-bottom:15px">
+            <a asp-action="Detalhes" asp-controller="Cliente" asp-route-id="@item.DadosLivroId">
+                <img src="~/livrariaimagens/@item.Imagem" style="width:200px;height:180px" class="img-thumbnail" /><br />
+            </a>
+            <a asp-action="Detalhes" asp-controller="Cliente" asp-route-id="@item.DadosLivroId"></a>
+            <b>Titulo: </b>
+            <span class="text-info">@item.Title</span><br />
+       
+        </div>
+    }
+</div>

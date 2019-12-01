@@ -19,6 +19,10 @@ namespace Livraria.DAO
         {
             return _context.Dados.ToList();
         }
+        public List<DadosLivro> ListarLivroDisponivel()
+        {
+            return _context.Dados.Where(x => x.Status.Equals("Disponivel")).ToList();
+        }
 
         public DadosLivro BuscarPorTitulo(DadosLivro dados)
         {
@@ -38,6 +42,7 @@ namespace Livraria.DAO
         {
             if (BuscarPorTitulo(dados) == null)
             {
+                dados.Status = "Disponivel";
                 _context.Dados.Add(dados);
                 _context.SaveChanges();
                 return true;
