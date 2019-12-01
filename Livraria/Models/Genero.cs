@@ -12,9 +12,9 @@ namespace Livraria.Models
         [Key]
         public int GeneroId { get; set; }
 
-        [Required(ErrorMessage = "Campo obrigatório")]
+        
         public string Nome { get; set; }
-        [Required(ErrorMessage = "Campo obrigatório")]
+
         public string Descricao { get; set; }
     }
 }

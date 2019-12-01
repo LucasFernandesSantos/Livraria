@@ -22,24 +22,39 @@ namespace Livraria.Controllers
         {
             return View(_generoDAO.ListarTodosGeneros());
         }
+
         public IActionResult CadastrarGenero()
         {
-            Genero genero = new Genero();
-            return View(genero);
+            return View();
         }
 
         [HttpPost]
         public IActionResult CadastrarGenero(Genero genero)
         {
-            genero = _generoDAO.CadastrarGenero(genero);
-            if (genero == null)
-
+            if (ModelState.IsValid)
             {
-                ModelState.AddModelError("", "Genero já cadastrado!");
-                return View(genero);
+                if (_generoDAO.CadastrarGenero(genero))
+                {
+                    return RedirectToAction("ListaGeneros");
+                }
+                ModelState.AddModelError("", "Essa categoria já existe!");
             }
-            return RedirectToAction("ListaGeneros");
+            return View(genero);
         }
+
+        //[HttpPost]
+        //public IActionResult CadastrarGenero(Genero genero)
+        //{
+        //    genero = _generoDAO.CadastrarGenero(genero);
+        //    if (genero == null)
+
+        //    {
+        //        ModelState.AddModelError("", "Genero já cadastrado!");
+        //        return View(genero);
+        //    }
+        //    return RedirectToAction("ListaGeneros");
+        //}
+
         public IActionResult EditarGenero(int id)
         {
             var result = View(_generoDAO.BuscarGeneroPorId(id));

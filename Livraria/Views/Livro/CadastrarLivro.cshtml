@@ -1,5 +1,5 @@
 ﻿@model DadosLivro
-<h2>Cadastro LIVRO</h2>
+
 <!--
 <form method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -46,7 +46,7 @@
 
     </div>*@
 
-<form method="post">
+<form asp-action="CadastrarLivro" method="post" enctype="multipart/form-data">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <h4 class="" style="color:black; color:darkgreen; background-color:wheat; margin-bottom:30px; margin-top:30px"><b> -- Cadastro Livro --</b></h4>
     <div class="form-group" id="CEP">
@@ -76,11 +76,12 @@
                 <input class="form-control col-md-3" style="margin-left:5px;" placeholder="Autor" asp-for="Autor" title="Autor" />
             </div>
         </div>
+
         <div class="form-group" id="Genero">
-            
+
             <select asp-items="@ViewBag.Genero" placeholder="Gênero" class="form-control" asp-for="Genero" title="Gênero"
                     name="drpGenero">
-                <option>  </option>
+                <option> SELECIONE O GENERO FDP </option>
             </select>
         </div>
 
@@ -105,6 +106,12 @@
                 <textarea rows="5" style="height:150px; margin-left:5px;" class="form-control col-md-6" placeholder="Descrição" asp-for="Description" readonly="" title="Descrição"></textarea>
             </div>
         </div>
+       
+
+            <div class="form-group" id="Imagem">
+                <input type="file" name="fupImagem"/>
+            </div>
+
         <div class="form-group">
             <div class="form-inline">
                 <input type="submit" value="Cadastar" class="btn-outline-success form-control col-md-4" style="margin-left:10px;" asp-action="CadastrarLivro" asp-controller="Livro" />
@@ -112,7 +119,7 @@
         </div>
 
     </div>
-    <h4 class="" style="color:black; color:darkgreen; background-color:wheat; margin-bottom:30px; margin-top:30px"><b> ___________________________________________________________________________________________________</b></h4>
+    <h4 class="" style="color:black; color:darkgreen; background-color:wheat; margin-bottom:30px; margin-top:30px"><b> ______________________________________________________________________________________________________</b></h4>
     <style>
         body {
             position: fixed;

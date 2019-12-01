@@ -58,6 +58,8 @@ namespace Livraria.Migrations
 
                     b.Property<int?>("GeneroId");
 
+                    b.Property<string>("Imagem");
+
                     b.Property<string>("PublishedDate");
 
                     b.Property<string>("Publisher");
@@ -119,11 +121,9 @@ namespace Livraria.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Descricao")
-                        .IsRequired();
+                    b.Property<string>("Descricao");
 
-                    b.Property<string>("Nome")
-                        .IsRequired();
+                    b.Property<string>("Nome");
 
                     b.HasKey("GeneroId");
 

@@ -34,19 +34,31 @@ namespace Livraria.DAO
         {
             return _context.Dados.Find(id);
         }
-        public DadosLivro CadastrarLivro(DadosLivro dados)
-        {
-            if (BuscarPorTitulo(dados) != null)
-            {
-                dados = null;
-                return dados;
-            }
 
-            dados.Status = "Disponível";
-            _context.Dados.Add(dados);
-            _context.SaveChanges();
-            return dados;
+        public bool CadastrarLivro(DadosLivro dados)
+        {
+            if (BuscarPorTitulo(dados) == null)
+            {
+                dados.Status = "Disponível";
+                _context.Dados.Add(dados);
+                _context.SaveChanges();
+                return true;
+            }
+            return false;
         }
+        //public DadosLivro CadastrarLivro(DadosLivro dados)
+        //{
+        //    if (BuscarPorTitulo(dados) != null)
+        //    {
+        //        dados = null;
+        //        return dados;
+        //    }
+
+        //    dados.Status = "Disponível";
+        //    _context.Dados.Add(dados);
+        //    _context.SaveChanges();
+        //    return dados;
+        //}
         public void EditarLivro(DadosLivro dados)
         {
             _context.Dados.Update(dados);

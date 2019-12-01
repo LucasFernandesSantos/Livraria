@@ -19,17 +19,28 @@ namespace Livraria.DAO
             return _context.Generos.Find(id);
         }
 
-        public Genero CadastrarGenero(Genero genero)
+        public bool CadastrarGenero(Genero objeto)
         {
-            if (BuscarPorNome(genero) != null)
+            if (BuscarPorNome(objeto) == null)
             {
-                genero = null;
-                return genero;
+                _context.Generos.Add(objeto);
+                _context.SaveChanges();
+                return true;
             }
-            _context.Generos.Add(genero);
-            _context.SaveChanges();
-            return genero;
+            return false;
         }
+
+        //public Genero CadastrarGenero(Genero genero)
+        //{
+        //    if (BuscarPorNome(genero) != null)
+        //    {
+        //        genero = null;
+        //        return genero;
+        //    }
+        //    _context.Generos.Add(genero);
+        //    _context.SaveChanges();
+        //    return genero;
+        //}
         public Genero BuscarPorNome(Genero genero)
         {
             return _context.Generos.FirstOrDefault

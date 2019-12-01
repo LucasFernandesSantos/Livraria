@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Livraria.DAO;
 using Livraria.Models;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
@@ -16,16 +19,18 @@ namespace Livraria.Controllers
         private readonly GeneroDAO _generoDAO;
         private readonly LivroDAO _livroDAO;
         public static List<Livro> listaLivro = new List<Livro>();
-        public LivroController(LivroDAO livroDAO, GeneroDAO generoDAO) 
+        private readonly IHostingEnvironment _hosting;
+        public LivroController(LivroDAO livroDAO, GeneroDAO generoDAO, IHostingEnvironment hosting) 
         {
             _livroDAO = livroDAO;
             _generoDAO = generoDAO;
+            _hosting = hosting;
         }
 
         public IActionResult Cadastrar()
         {
             ViewBag.Generos =
-                new SelectList(_generoDAO.ListarTodosGeneros(), "GeneroId", "Nome");
+                new SelectList(_generoDAO.ListarTodosGeneros(), "GeneroId", "Nome", "Descricao");
             return View();
         }
         public IActionResult ListarLivro()
@@ -66,19 +71,60 @@ namespace Livraria.Controllers
         }
 
         [HttpPost]
-        public IActionResult CadastrarLivro(DadosLivro dados, int drpGeneros)
+        public IActionResult CadastrarLivro(DadosLivro dados, int drpGeneros, IFormFile fupImagem)
         {
-           
-            ViewBag.Generos = new SelectList(_generoDAO.ListarTodosGeneros(), "GeneroId", "Nome");
-            dados = _livroDAO.CadastrarLivro(dados);
-            dados.Genero = _generoDAO.BuscarGeneroPorId(drpGeneros);
-            if (dados == null)
+            ViewBag.Categorias = new SelectList(_generoDAO.ListarTodosGeneros(), "GeneroId", "Nome", "Descricao");
+
+            if (ModelState.IsValid)
             {
-                ModelState.AddModelError("", "Livro já cadastrado!");
+                if (fupImagem != null)
+                {
+                    string arquivo = Guid.NewGuid().ToString() + Path.GetExtension(fupImagem.FileName);
+                    string caminho = Path.Combine(_hosting.WebRootPath, "livrariaimagens", arquivo);
+                    fupImagem.CopyTo(new FileStream(caminho, FileMode.Create));
+                    dados.Imagem = arquivo;
+                }
+                else
+                {
+                    dados.Imagem = "leedopai.jpg";
+                }
+                dados.Genero = _generoDAO.BuscarGeneroPorId(drpGeneros);
+
+                if (_livroDAO.CadastrarLivro(dados))
+                {
+                    return RedirectToAction("ListarLivro");
+                }
+                ModelState.AddModelError("", "Esse produto já existe!");
                 return View(dados);
             }
-            return RedirectToAction("ListarLivro");
+            ViewBag.d = "show";
+            return View(dados);
         }
+        //[HttpPost]
+        //public IActionResult CadastrarLivro(DadosLivro dados, int drpGeneros, IFormFile fupImagem)
+        //{
+
+            //    ViewBag.Generos = new SelectList(_generoDAO.ListarTodosGeneros(), "GeneroId", "Nome");
+            //    dados = _livroDAO.CadastrarLivro(dados);
+            //    dados.Genero = _generoDAO.BuscarGeneroPorId(drpGeneros);
+            //    if (fupImagem != null)
+            //    {
+            //        string arquivo = Guid.NewGuid().ToString() + Path.GetExtension(fupImagem.FileName);
+            //        string caminho = Path.Combine(_hosting.WebRootPath, "livrariaimagens", arquivo);
+            //        fupImagem.CopyTo(new FileStream(caminho, FileMode.Create));
+            //        dados.Imagem = arquivo;
+            //    }
+            //    else
+            //    {
+            //        dados.Imagem = "leedopai.jpg";
+            //    }
+            //    if (dados == null)
+            //    {
+            //        ModelState.AddModelError("", "Livro já cadastrado!");
+            //        return View(dados);
+            //    }
+            //    return RedirectToAction("ListarLivro");
+            //}
 
         [HttpPost]
         public IActionResult BuscarLivro(string nome)
