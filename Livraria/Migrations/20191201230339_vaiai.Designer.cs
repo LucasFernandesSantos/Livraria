@@ -4,14 +4,16 @@ using Livraria.DAO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Livraria.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20191201230339_vaiai")]
+    partial class vaiai
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -77,8 +79,6 @@ namespace Livraria.Migrations
 
                     b.Property<string>("Genero");
 
-                    b.Property<int?>("GeneroLivroId");
-
                     b.Property<string>("Imagem");
 
                     b.Property<string>("PublishedDate");
@@ -92,8 +92,6 @@ namespace Livraria.Migrations
                     b.HasKey("DadosLivroId");
 
                     b.HasIndex("CategoriaId");
-
-                    b.HasIndex("GeneroLivroId");
 
                     b.ToTable("DadosLivros");
                 });
@@ -142,19 +140,6 @@ namespace Livraria.Migrations
                     b.ToTable("Enderecos");
                 });
 
-            modelBuilder.Entity("Livraria.Models.GeneroLivro", b =>
-                {
-                    b.Property<int>("GeneroLivroId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Nome");
-
-                    b.HasKey("GeneroLivroId");
-
-                    b.ToTable("Generos");
-                });
-
             modelBuilder.Entity("Livraria.Models.ReservaLivro", b =>
                 {
                     b.Property<int>("IdReservaLivro")
@@ -192,10 +177,6 @@ namespace Livraria.Migrations
                     b.HasOne("Livraria.Models.Categoria", "Categoria")
                         .WithMany()
                         .HasForeignKey("CategoriaId");
-
-                    b.HasOne("Livraria.Models.GeneroLivro", "GeneroLivro")
-                        .WithMany()
-                        .HasForeignKey("GeneroLivroId");
                 });
 
             modelBuilder.Entity("Livraria.Models.DevolucaoLivro", b =>

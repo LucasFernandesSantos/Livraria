@@ -17,13 +17,13 @@ namespace Livraria.Controllers
     public class LivroController : Controller
     {
         private readonly LivroDAO _livroDAO;
-        private readonly CategoriaDAO _categoriaDAO;
+        private readonly GeneroLivroDAO _generoLivroDAO;
         private readonly IHostingEnvironment _hosting;
         public static List<Livro> listaLivro = new List<Livro>();
-        public LivroController(LivroDAO livroDAO, CategoriaDAO categoriaDAO, IHostingEnvironment hosting)
+        public LivroController(LivroDAO livroDAO, GeneroLivroDAO generoLivroDAO, IHostingEnvironment hosting)
         {
             _livroDAO = livroDAO;
-            _categoriaDAO = categoriaDAO;
+            _generoLivroDAO = generoLivroDAO;
             _hosting = hosting;
         }
         public IActionResult ListarLivro()
@@ -47,7 +47,7 @@ namespace Livraria.Controllers
             if (TempData["DadosLivro"] != null)
             {
                 dados = JsonConvert.DeserializeObject<DadosLivro>(TempData["DadosLivro"].ToString());
-                ViewBag.Categorias = new SelectList(_categoriaDAO.ListarTodos(), "CategoriaId", "Nome");
+                ViewBag.Generos = new SelectList(_generoLivroDAO.ListarTodos(), "GeneroLivroId", "Nome");
             }
             return View(dados);
         }
@@ -66,9 +66,9 @@ namespace Livraria.Controllers
         }
 
         [HttpPost]
-        public IActionResult CadastrarLivro(DadosLivro dados, int drpCategorias, IFormFile fupImagem)
+        public IActionResult CadastrarLivro(DadosLivro dados, int drpGeneros, IFormFile fupImagem)
         {
-            ViewBag.Categorias = new SelectList(_categoriaDAO.ListarTodos(), "CategoriaId", "Nome");
+            ViewBag.Generos = new SelectList(_generoLivroDAO.ListarTodos(), "GeneroLivroId", "Nome");
 
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace Livraria.Controllers
 
                 }
 
-                dados.Categoria = _categoriaDAO.BuscarPorId(drpCategorias);
+                dados.GeneroLivro = _generoLivroDAO.BuscarPorId(drpGeneros);
                 if (_livroDAO.CadastrarLivro(dados))
                 {
                     return RedirectToAction("ListarLivro");

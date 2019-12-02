@@ -10,7 +10,11 @@ namespace Livraria.Models
     [Table("DadosLivros")]
     public class DadosLivro
     {
-       
+        public DadosLivro()
+        {
+            ReservaLivro = new List<ReservaLivro>();
+            DevolucaoLivro = new List<DevolucaoLivro>();
+        }
 
         [Key]
         public int DadosLivroId { get; set; }
@@ -22,9 +26,11 @@ namespace Livraria.Models
         public string PublishedDate { get; set; }
         public string Description { get; set; }
         public string Status { get; set; }
-        public Categoria Categoria { get; set; }
+        public GeneroLivro GeneroLivro { get; set; }
         public string Imagem { get; set; }
         public string Genero { get; set; }
         public string Descricao { get; set; }
+        public List<ReservaLivro> ReservaLivro { get; set; }
+        public List<DevolucaoLivro> DevolucaoLivro { get; set; }
     }
 }

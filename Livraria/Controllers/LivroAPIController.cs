@@ -22,7 +22,7 @@ namespace Livraria.Controllers
         [Route("BuscarPorCategoria/{id}")]
         public IActionResult BuscarPorCategoria(int id)
         {
-            List<DadosLivro> livros = _LivroDAO.ListarPorCategoria(id);
+            List<DadosLivro> livros = _LivroDAO.ListarPorGeneros(id);
             if (livros.Count > 0)
             {
                 return Ok(livros);

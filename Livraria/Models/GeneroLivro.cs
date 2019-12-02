@@ -7,13 +7,11 @@ using System.Threading.Tasks;
 
 namespace Livraria.Models
 {
-    [Table("Categorias")]
-    public class Categoria
+    [Table("Generos")]
+    public class GeneroLivro
     {
         [Key]
-        public int CategoriaId { get; set; }
-
-
+        public int GeneroLivroId { get; set; }
         public string Nome { get; set; }
     }
 }

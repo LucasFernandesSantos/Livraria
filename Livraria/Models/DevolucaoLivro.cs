@@ -13,6 +13,7 @@ namespace Livraria.Models
         [Key]
         public int IdDevolucaoLivro { get; set; }  
         public Cliente Cliente { get; set; }
-        //public Livro Livro { get; set; }
+        public DadosLivro DadosLivro { get; set; }
+        public virtual ReservaLivro ReservaLivro { get; set; }
     }
 }

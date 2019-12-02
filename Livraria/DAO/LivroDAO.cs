@@ -26,7 +26,7 @@ namespace Livraria.DAO
 
         public List<DadosLivro> ListarTodos()
         {
-            return _context.Dados.Include(x => x.Categoria).ToList();
+            return _context.Dados.Include(x => x.GeneroLivro).ToList();
         }
 
 
@@ -61,10 +61,11 @@ namespace Livraria.DAO
             _context.SaveChanges();
         }
 
-        public List<DadosLivro> ListarPorCategoria(int? id)
+        public List<DadosLivro> ListarPorGeneros(int? id)
         {
-            return _context.Dados.Include(x => x.Categoria).Where(x => x.Categoria.CategoriaId == id).ToList();
+            return _context.Dados.Include(x => x.GeneroLivro).Where(x => x.GeneroLivro.GeneroLivroId == id).ToList();
         }
+
 
 
         //public Livro BuscarPorID(int? id)

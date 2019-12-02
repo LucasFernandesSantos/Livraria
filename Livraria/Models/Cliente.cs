@@ -27,5 +27,6 @@ namespace Livraria.Models
         public Endereco Endereco { get; set; }
         public List<ReservaLivro> ReservaLivro { get; set; }
         public List<DevolucaoLivro> DevolucaoLivro { get; set; }
+        public string StatusCliente { get; set; }
     }
 }

@@ -44,6 +44,7 @@ namespace Livraria.DAO
                     cliente = null;
                     return cliente;
                 }
+                 cliente.StatusCliente = "Disponivel";
                 _context.Clientes.Add(cliente);
                 _context.SaveChanges();
             }
