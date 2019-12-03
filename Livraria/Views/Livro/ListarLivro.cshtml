@@ -10,7 +10,8 @@
             <th>Editora</th>
             <th>Data de publicação</th>
             <th>Autor</th>
-            <th>Imagem</th>
+            <th>Genero</th>
+
             <th></th>
             <th></th>
         </tr>
@@ -18,24 +19,21 @@
     <tbody>
         @foreach (DadosLivro item in Model)
         {
-            <tr class="table-success">
-                <td>@item.Title</td>
-                <td>@item.Publisher</td>
-                <td>@item.PublishedDate</td>
-                <td>@item.Autor</td>
-                <td>
-                    <img src="~/livrariaimagens/@item.Imagem"
-                         class="img-thumbnail" />
-                </td>
+        <tr class="table-success">
+            <td>@item.Title</td>
+            <td>@item.Publisher</td>
+            <td>@item.PublishedDate</td>
+            <td>@item.Autor</td>
+            <td>@item.Genero</td>
+        
+            <td>
+                <a class="btn btn-danger" asp-action="RemoverLivro" asp-route-id="@item.DadosLivroId">Remover</a>
+            </td>
+            <td>
+                <a class="btn btn-warning" asp-action="EditarLivro" asp-route-id="@item.DadosLivroId">Alterar</a>
 
-                <td>
-                    <a class="btn btn-danger" asp-action="RemoverLivro" asp-route-id="@item.DadosLivroId">Remover</a>
-                </td>
-                <td>
-                    <a class="btn btn-warning" asp-action="EditarLivro" asp-route-id="@item.DadosLivroId">Alterar</a>
-
-                </td>
-            </tr>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

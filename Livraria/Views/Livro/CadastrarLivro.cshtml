@@ -45,7 +45,7 @@
 
     </div>*@
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <h4 class="" style="color:black; color:darkgreen; background-color:wheat; margin-bottom:30px; margin-top:30px"><b> -- Cadastro Livro --</b></h4>
     <div class="form-group" id="CEP">
@@ -57,78 +57,78 @@
                        asp-action="BuscarLivro" asp-controller="Livro" />
             </div>
         </div>
+    </div>
 
-
-        <div class="form-group">
-            <div class="form-inline">
-                <div>
-                    <label class="text-info"></label>
-                </div>
-                <input class="form-control col-md-3" style="margin-left:5px;" placeholder="Titulo" asp-for="Title" title="Titulo" readonly="" />
-                <div>
-                    <label class="text-info"></label>
-                </div>
-                <input class="form-control col-md-3" style="margin-left:5px;" placeholder="Autor" asp-for="Authors[0]" readonly="" title="Autor" />
-                <div>
-                    <label class="text-info"></label>
-                </div>
-                <input class="form-control col-md-3" style="margin-left:5px;" placeholder="Autor" asp-for="Autor" title="Autor" />
-            </div>
-        </div>
-
-
-        <div class="form-group">
-            <div class="form-inline">
-                <div>
-                    <label class="text-info"></label>
-                </div>
-                <input type="date" class="form-control col-md-3" style="margin-left:5px;" placeholder="Data de publicação" asp-for="PublishedDate" title="Data de publicação" readonly="" />
-                <div>
-                    <label class="text-info"></label>
-                </div>
-                <input class="form-control col-md-3" style="margin-left:5px;" placeholder="Editora" asp-for="Publisher" readonly="" title="Editora" />
+    <div class="form-group">
+        <div class="form-inline">
+            <div>
                 <label class="text-info"></label>
-                <select asp-items="@ViewBag.Generos" class="form-control col-md-3" style="margin-left:5px;" placeholder="Gênero" name="drpGeneros" readonly="" title="Gênero">
-                    <option>-- GÊNERO/View -- </option>
-                </select>
             </div>
+            <input class="form-control col-md-3" style="margin-left:5px;" placeholder="Titulo" asp-for="Title" title="Titulo" readonly="" />
+            <div>
+                <label class="text-info"></label>
+            </div>
+            <input class="form-control col-md-3" style="margin-left:5px;" placeholder="Autor" asp-for="Authors[0]" readonly="" title="Autor" />
+            <div>
+                <label class="text-info"></label>
+            </div>
+            <input class="form-control col-md-3" style="margin-left:5px;" placeholder="Autor" asp-for="Autor" title="Autor" />
         </div>
-        <div class="form-group">
-            <div class="form-inline">
-                <select asp-for="Genero" class="form-control col-md-3" style="margin-left:5px;" placeholder="Genero" title="Genero">
-                    <option>Gênero</option>
-                    <option>Romance</option>
-                    <option>Ação</option>
-                    <option>Suspense</option>
-                </select>
-                <select asp-for="Descricao" class="form-control col-md-6" style="margin-left:5px;" placeholder="Descricao" title="Descricao">
-                    <option>Descrição</option>
-                    <option>Envolvimento amoroso entre os protagonistas</option>
-                    <option>Protagonistas do bem contra antagonistas do mal</option>
-                    <option>Predominam as situações de tensão</option>
-                </select>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="form-inline">
-                <div>
-                    <label class="text-info"></label>
-                </div>
-                <textarea rows="5" style="height:150px; margin-left:5px;" class="form-control col-md-9" placeholder="Descrição" asp-for="Description" readonly="" title="Descrição"></textarea>
-            </div>
-            <div class="form-group" id="Imagem">
-                <label>Imagem:</label><br />
-                <input type="file" name="fupImagem" />
-            </div>
-            <div class="form-group">
-                <div class="form-inline">
-                    <input type="submit" value="Cadastar" class="btn-outline-success form-control col-md-4" style="margin-left:10px;" asp-action="CadastrarLivro" asp-controller="Livro" />
-                </div>
-            </div>
+    </div>
 
+
+    <div class="form-group">
+        <div class="form-inline">
+            <div>
+                <label class="text-info"></label>
+            </div>
+            <input type="date" class="form-control col-md-3" style="margin-left:5px;" placeholder="Data de publicação" asp-for="PublishedDate" title="Data de publicação" readonly="" />
+            <div>
+                <label class="text-info"></label>
+            </div>
+            <input class="form-control col-md-3" style="margin-left:5px;" placeholder="Editora" asp-for="Publisher" readonly="" title="Editora" />
+            <label class="text-info"></label>
+            <select asp-items="@ViewBag.Generos" class="form-control col-md-3" style="margin-left:5px;" placeholder="Gênero" name="drpGeneros" readonly="" title="Gênero">
+                <option>-- GÊNERO/View -- </option>
+            </select>
         </div>
-        <h4 class="" style="color:black; color:darkgreen; background-color:wheat; margin-bottom:30px; margin-top:30px"><b> _____________________________________________________________________________________________________</b></h4>
-        @*<style>
+    </div>
+    <div class="form-group">
+        <div class="form-inline">
+            <select asp-for="Genero" class="form-control col-md-3" style="margin-left:5px;" placeholder="Genero" title="Genero">
+                <option>Gênero</option>
+                <option>Romance</option>
+                <option>Ação</option>
+                <option>Suspense</option>
+            </select>
+            <select asp-for="Descricao" class="form-control col-md-6" style="margin-left:5px;" placeholder="Descricao" title="Descricao">
+                <option>Descrição</option>
+                <option>Envolvimento amoroso entre os protagonistas</option>
+                <option>Protagonistas do bem contra antagonistas do mal</option>
+                <option>Predominam as situações de tensão</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-inline">
+            <div>
+                <label class="text-info"></label>
+            </div>
+            <textarea rows="5" style="height:150px; margin-left:5px;" class="form-control col-md-9" placeholder="Descrição" asp-for="Description" readonly="" title="Descrição"></textarea>
+        </div>
+        <div class="form-group" id="Imagem">
+            <label>Imagem:</label><br />
+            <input type="file" name="fupImagem" />
+        </div>
+        <div class="form-group">
+            <div class="form-inline">
+                <input type="submit" value="Cadastar" class="btn-outline-success form-control col-md-4" style="margin-left:10px;" asp-action="CadastrarLivro" asp-controller="Livro" />
+            </div>
+        </div>
+
+    </div>
+    <h4 class="" style="color:black; color:darkgreen; background-color:wheat; margin-bottom:30px; margin-top:30px"><b> _____________________________________________________________________________________________________</b></h4>
+    @*<style>
             body {
                 position: fixed;
                 left: 0;

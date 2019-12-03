@@ -23,6 +23,10 @@ namespace Livraria.DAO
         {
             return _context.Dados.Where(x => x.Status.Equals("Disponivel")).ToList();
         }
+        public List<DadosLivro> ListarLivroFake()
+        {
+            return _context.Dados.Where(x => x.Status.Equals("Fake")).ToList();
+        }
 
         public List<DadosLivro> ListarTodos()
         {

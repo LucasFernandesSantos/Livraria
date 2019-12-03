@@ -1,5 +1,8 @@
 ﻿@model DadosLivro
-<a asp-action="ListarLivro" class="btn-outline-success form-control col-md-1" style="margin-left:10px;"asp-controller="Cliente">Voltar</a><br />
+<a asp-action="ListarLivro" class="btn-outline-success form-control col-md-1" style="margin-left:10px;" asp-controller="Cliente">Voltar</a><br />
+<form method="post">
+<input type="hidden" asp-for="DadosLivroId" />
+    </form>
 <table>
 
     <tr>
@@ -14,4 +17,8 @@
         </td>
     </tr>
 </table>
+<form>
+    <a asp-action="ReservaLivro" class="btn-outline-info form-control col-md-1" style="text-align" asp-controller="ReservaLivro">Salvar</a>
+</form>
+
 

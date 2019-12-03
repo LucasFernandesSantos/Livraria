@@ -28,5 +28,6 @@ namespace Livraria.Models
         public List<ReservaLivro> ReservaLivro { get; set; }
         public List<DevolucaoLivro> DevolucaoLivro { get; set; }
         public string StatusCliente { get; set; }
+       // public string IdCliente { get; set; }
     }
 }

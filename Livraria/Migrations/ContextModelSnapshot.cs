@@ -15,22 +15,9 @@ namespace Livraria.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.11-servicing-32099")
+                .HasAnnotation("ProductVersion", "2.1.8-servicing-32085")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("Livraria.Models.Categoria", b =>
-                {
-                    b.Property<int>("CategoriaId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Nome");
-
-                    b.HasKey("CategoriaId");
-
-                    b.ToTable("Categorias");
-                });
 
             modelBuilder.Entity("Livraria.Models.Cliente", b =>
                 {
@@ -69,8 +56,6 @@ namespace Livraria.Migrations
 
                     b.Property<string>("Autor");
 
-                    b.Property<int?>("CategoriaId");
-
                     b.Property<string>("Descricao");
 
                     b.Property<string>("Description");
@@ -90,8 +75,6 @@ namespace Livraria.Migrations
                     b.Property<string>("Title");
 
                     b.HasKey("DadosLivroId");
-
-                    b.HasIndex("CategoriaId");
 
                     b.HasIndex("GeneroLivroId");
 
@@ -189,10 +172,6 @@ namespace Livraria.Migrations
 
             modelBuilder.Entity("Livraria.Models.DadosLivro", b =>
                 {
-                    b.HasOne("Livraria.Models.Categoria", "Categoria")
-                        .WithMany()
-                        .HasForeignKey("CategoriaId");
-
                     b.HasOne("Livraria.Models.GeneroLivro", "GeneroLivro")
                         .WithMany()
                         .HasForeignKey("GeneroLivroId");

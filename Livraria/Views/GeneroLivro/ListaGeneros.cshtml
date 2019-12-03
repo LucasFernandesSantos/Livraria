@@ -1,35 +1,32 @@
 ﻿@model IEnumerable<GeneroLivro>
-
-@{
-    ViewData["Title"] = "ListaGeneros";
-}
-
-<h2>Index</h2>
+<h2>Lista Genero Livro</h2>
 <p>
-    <a asp-action="CadastrarGenero">Cadastrar novo Gênero</a>
+    <a asp-action="CadastrarGenero" class="btn btn-outline-success col-md-2">Cadastrar</a>
+
 </p>
-<table class="table">
+<table class="table table-hover table-striped">
     <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
+        <tr class="table-dark">
+             <th>GeneroId</th>
+            <th>Genero</th>
+            <th></th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (GeneroLivro item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nome)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.GeneroLivroId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.GeneroLivroId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.GeneroLivroId">Delete</a>
-                </td>
-            </tr>
+        <tr class="table-success">
+            <td>@item.GeneroLivroId</td>
+            <td>@item.Nome</td>
+            <td>
+                <a class="btn btn-danger" asp-action="RemoverGenero" asp-route-id="@item.GeneroLivroId">Remover</a>
+            </td>
+            <td>
+                <a class="btn btn-warning" asp-action="EditarGenero" asp-route-id="@item.GeneroLivroId">Alterar</a>
+
+            </td>
+        </tr>
         }
     </tbody>
 </table>

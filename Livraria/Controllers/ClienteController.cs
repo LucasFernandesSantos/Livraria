@@ -27,10 +27,15 @@ namespace Livraria.Controllers
         }
 
         public IActionResult ListarLivro(int? id)
-        {   
+        {
+            Cliente cliente = _clienteDAO.BuscarPorID(Convert.ToInt32(HttpContext.Session.GetString("ClienteId")));
             ViewBag.Generos = _generoLivroDAO.ListarTodos();
             if (id == null)
             {
+                if (cliente.StatusCliente.Equals("Indisponivel"))
+                {
+                 return View(_livroDAO.ListarLivroFake());
+                }
                 return View(_livroDAO.ListarLivroDisponivel());
             }
             return View(_livroDAO.ListarPorGeneros(id));    
@@ -38,6 +43,7 @@ namespace Livraria.Controllers
 
         public IActionResult Detalhes(int id)
         {
+            HttpContext.Session.SetString("DadosLivroId", id.ToString());
             return View(_livroDAO.BuscarPorID(id));
         }
         public IActionResult Editar()
