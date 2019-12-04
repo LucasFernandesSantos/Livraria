@@ -4,8 +4,9 @@
 <table class="table table-hover table-striped">
     <thead>
         <tr class="table-dark">
-            <th>Idcliente</th>
-            <th>IdLivro</th>
+        
+            <th>Livro</th>
+            <th>Autor</th>
             <th>Data inicial</th>
             <th>Data final</th>
 
@@ -16,15 +17,15 @@
         @foreach (ReservaLivro item in Model)
         {
         <tr class="table-success">
-            
-            <td>@item.ClienteId</td>
-            <td>@item.DadosLivro.DadosLivroId </td>
+        
+            <td>@item.DadosLivro.Title </td>
+            <td>@item.DadosLivro.Autor </td>
             <td>@item.DataReservaLivro</td>
             <td>@item.DataDevolucaoLivro</td>
 
             <td>
-      
-                <a asp-action="DevolverReserva" class="btn btn-outline-info form-control col-md-3" style="margin-left:10px;" asp-controller="Devolucao" asp-route-id="@item.IdReservaLivro">Devolução</a>
+
+                <a asp-action="DevolverReserva" class="btn btn-info form-control col-md-7" style="margin-left:10px;" asp-controller="Devolucao" asp-route-id="@item.IdReservaLivro">Devolução</a>
             </td>
         </tr>
         }

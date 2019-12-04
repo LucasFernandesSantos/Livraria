@@ -10,6 +10,10 @@ namespace Livraria.Models
     [Table("ReservaLivros")]
     public class ReservaLivro
     {
+        public ReservaLivro()
+        {
+            StatusR = "Disponivel";
+        }
         [Key]
         public int IdReservaLivro { get; set; }
         public DateTime DataReservaLivro { get; set; }
@@ -18,5 +22,6 @@ namespace Livraria.Models
         public DadosLivro DadosLivro { get; set; }
         public int ClienteId { get; set; }
         public int LivroId { get; set; }
+        public string StatusR { get; set; }
     }
 }

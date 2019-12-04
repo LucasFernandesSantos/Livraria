@@ -27,14 +27,24 @@ namespace Livraria.DAO
         }
         public List<ReservaLivro> ReservaDoCliente(int id)
         {
-            return _context.Reservas.Where(x => x.ClienteId==id).Include(x => x.DadosLivro).Include(x => x.Cliente).ToList();
+            return _context.Reservas.Where(x => x.ClienteId==id).Where(x => x.StatusR.Equals("Disponivel")).Include(x => x.DadosLivro).Include(x => x.Cliente).ToList();
         }
+        public List<ReservaLivro> ListaReservaAdm()
+        {
+            return _context.Reservas.Where(x => x.StatusR.Equals("Cancelado")).Include(x => x.DadosLivro).Include(x => x.Cliente).ToList();
+        }
+
 
         public ReservaLivro SalvarReserva(ReservaLivro reservaLivro)
         {
             _context.Reservas.Add(reservaLivro);
             _context.SaveChanges();
             return reservaLivro;
+        }
+        public void Update(ReservaLivro reservaLivro)
+        {
+            _context.Reservas.Update(reservaLivro);
+            _context.SaveChanges();
         }
 
         public ReservaLivro BuscarPorID(int? id)

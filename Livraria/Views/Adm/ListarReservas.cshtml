@@ -1,0 +1,29 @@
+﻿@model List<ReservaLivro>
+
+<h4 class="text-info">Reserva Cliente</h4>
+<table class="table table-hover table-striped">
+    <thead>
+        <tr class="table-dark">
+            <th>IdCliente</th>
+            <th>Cliente</th>
+            <th>LivroId</th>
+            <th>Livro</th>
+            <th>Autor</th>       
+            <th>IdReserva</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (ReservaLivro item in Model)
+        {
+        <tr class="table-success">
+            <td>@item.Cliente.ClienteId </td>
+            <td>@item.Cliente.Nome </td>
+            <td>@item.DadosLivro.DadosLivroId </td>
+            <td>@item.DadosLivro.Title </td>
+            <td>@item.DadosLivro.Autor </td>
+            <td>@item.IdReservaLivro </td>
+
+        </tr>
+        }
+    </tbody>
+</table>

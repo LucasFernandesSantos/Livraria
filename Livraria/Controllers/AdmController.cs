@@ -10,10 +10,12 @@ namespace Livraria.Controllers
 {
     public class AdmController : Controller
     {
+        private readonly ReservaLivroDAO _reservaLivroDAO;
         private readonly ClienteDAO _clienteDAO;
         public static List<Cliente> listaCliente = new List<Cliente>();
-        public AdmController(ClienteDAO clienteDAO)
+        public AdmController(ClienteDAO clienteDAO, ReservaLivroDAO reservaLivro)
         {
+            _reservaLivroDAO = reservaLivro;
             _clienteDAO = clienteDAO;
         }
         public IActionResult Index()
@@ -30,6 +32,11 @@ namespace Livraria.Controllers
             return View(listaCliente);
 
         }
+        public IActionResult ListarReservas()
+        {
+            return View(_reservaLivroDAO.ListaReservaAdm());
+        }
+
         public IActionResult EditarCliente(int id)
         {
             var result = View(_clienteDAO.BuscarPorID(id));

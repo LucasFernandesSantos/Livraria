@@ -34,7 +34,7 @@ namespace Livraria.Controllers
             {
                 if (cliente.StatusCliente.Equals("Indisponivel"))
                 {
-                 return View(_livroDAO.ListarLivroFake());
+                    return RedirectToAction("Index", "Cliente");
                 }
                 return View(_livroDAO.ListarLivroDisponivel());
             }

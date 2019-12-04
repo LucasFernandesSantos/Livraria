@@ -22,8 +22,8 @@ namespace Livraria.Controllers
         }
         public IActionResult Devolucao()
         {
-
             return View(_reservaLivroDAO.ReservaDoCliente(Convert.ToInt32(HttpContext.Session.GetString("ClienteId"))));
+
         }
 
         public IActionResult DevolverReserva(int id)
@@ -32,9 +32,10 @@ namespace Livraria.Controllers
             DadosLivro dados = _livroDAO.BuscarPorID(reserva.LivroId);
             int idC = Convert.ToInt32(HttpContext.Session.GetString("ClienteId"));
             Cliente cliente = _clienteDAO.BuscarPorID(idC);
-         
+            reserva.StatusR = "Cancelado";
             cliente.StatusCliente = "Disponivel";
             dados.Status = "Disponivel";
+            _reservaLivroDAO.Update(reserva);
             _clienteDAO.EditarCliente(cliente);
             _livroDAO.EditarLivro(dados);
             return RedirectToAction("Index", "Cliente");
