@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Livraria.Migrations
 {
-    public partial class primeira2 : Migration
+    public partial class livraria : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

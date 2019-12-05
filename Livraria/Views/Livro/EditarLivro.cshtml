@@ -10,10 +10,10 @@
         <div class="form-inline">
 
 
-            <input class="form-control col-md-3" style="margin-left:5px;" placeholder="Titulo" asp-for="Title" title="Titulo" />
+            <input class="form-control col-md-3" style="margin-left:5px;" placeholder="Titulo" asp-for="Title" title="Titulo" readonly="" />
 
- 
-            <input class="form-control col-md-3" style="margin-left:5px;" placeholder="Autor" asp-for="Autor" title="Autor" />
+
+            <input class="form-control col-md-3" style="margin-left:5px;" placeholder="Autor" asp-for="Autor" title="Autor"  />
 
         </div>
     </div>
@@ -21,12 +21,23 @@
         <div class="form-inline">
 
 
-            <input class="form-control col-md-3" style="margin-left:5px;" placeholder="Data de publicação" asp-for="Publisher" title="Date" />
+            <input class="form-control col-md-3" style="margin-left:5px;" placeholder="Editora" asp-for="Publisher" title="Editora"  />
 
-            <input class="form-control col-md-3" style="margin-left:5px;" placeholder="Telefone" asp-for="PublishedDate" title="Telefone" />
+            <input class="form-control col-md-3" style="margin-left:5px;" placeholder="Data de publicação" asp-for="PublishedDate"  title="Data de publicação" />
 
         </div>
     </div>
+    <div class="form-group">
+        <div class="form-inline">
+
+            <select asp-for="Descricao" class="form-control col-md-6" style="margin-left:5px;" placeholder="Descricao" title="Descricao">
+                <option>Envolvimento amoroso entre os protagonistas</option>
+                <option>Protagonistas do bem contra antagonistas do mal</option>
+                <option>Predominam as situações de tensão</option>
+            </select>
+        </div>
+    </div>
+
     <div class="form-group">
         <div class="form-inline">
             <button class="btn btn-success col-md-3" style="margin-left:10px;" type="submit">Salvar</button>

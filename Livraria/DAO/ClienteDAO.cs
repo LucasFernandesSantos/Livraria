@@ -37,8 +37,8 @@ namespace Livraria.DAO
         }
         public Cliente CadastrarCliente(Cliente cliente)
         {
-           if (Validacao.IsValidCpf(cliente.Cpf))
-            {
+         //  if (Validacao.IsValidCpf(cliente.Cpf))
+         //   {
                 if (BuscaPorCpf(cliente) != null)
                 {
                     cliente = null;
@@ -47,7 +47,7 @@ namespace Livraria.DAO
                  cliente.StatusCliente = "Disponivel";
                 _context.Clientes.Add(cliente);
                 _context.SaveChanges();
-            }
+           // }
             return cliente;
         }
         public List<Cliente> ListarTodos()

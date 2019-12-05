@@ -11,27 +11,27 @@
     <div class="form-group" id="Cliente">
         <div class="form-group">
             <div class="form-inline">
-                <input class="form-control col-md-4" style="margin-left:10px;" placeholder="Nome" asp-for="Nome" title="Nome" />
+                <input class="form-control col-md-4" style="margin-left:10px;" placeholder="Nome" asp-for="Nome" title="Nome" required="" />
             </div>
         </div>
     </div>
     <div class="form-group">
         <div class="form-inline">
-            <input class="form-control col-md-2" style="margin-left:10px;" placeholder="CPF" asp-for="Cpf" title="CPF" />
-            <input type="password" class="form-control col-md-2" style="margin-left:10px;" placeholder="Senha" asp-for="Senha" title="Senha" />
+            <input class="form-control col-md-2" style="margin-left:10px;" placeholder="CPF" asp-for="Cpf" title="CPF"  required="" />
+            <input type="password" class="form-control col-md-2" style="margin-left:10px;" placeholder="Senha" asp-for="Senha" title="Senha"  required=""/>
 
         </div>
     </div>
     <div class="form-group">
         <div class="form-inline">
-            <input type="date" class="form-control col-md-2" style="margin-left:10px;" placeholder="Date" asp-for="DataNascimento" title="Date" />
-            <input type="tel" class="form-control col-md-2" style="margin-left:10px;" placeholder="Telefone" asp-for="Telefone" title="Telefone" />
+            <input type="date" class="form-control col-md-2" style="margin-left:10px;" placeholder="Date" asp-for="DataNascimento" title="Date" required="" />
+            <input type="tel" class="form-control col-md-2" style="margin-left:10px;" placeholder="Telefone" asp-for="Telefone" title="Telefone" required="" />
 
         </div>
     </div>
     <div class="form-group">
         <div class="form-inline">
-            <input type="email" class="form-control col-md-4" style="margin-left:10px;" placeholder="Email" asp-for="Email" title="Email" />
+            <input type="email" class="form-control col-md-4" style="margin-left:10px;" placeholder="Email" asp-for="Email" title="Email" required="" />
         </div>
     </div>
 
@@ -41,7 +41,7 @@
         <div class="form-group">
             <div class="form-inline">
 
-                <input class="form-control col-md-2" style="margin-left:10px;" placeholder="CEP" asp-for="Endereco.Cep" title="CEP" />
+                <input class="form-control col-md-2" style="margin-left:10px;" placeholder="CEP" asp-for="Endereco.Cep" title="CEP"  />
 
 
                 <input type="submit" value="Buscar" class="btn-outline-info form-control col-md-1" style="margin-left:10px;" asp-action="BuscarCep" asp-controller="Home" />
