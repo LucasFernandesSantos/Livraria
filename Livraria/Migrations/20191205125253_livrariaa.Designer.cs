@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Livraria.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20191205112332_livraria")]
-    partial class livraria
+    [Migration("20191205125253_livrariaa")]
+    partial class livrariaa
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -36,6 +36,8 @@ namespace Livraria.Migrations
                     b.Property<int?>("EnderecoId");
 
                     b.Property<string>("Nome");
+
+                    b.Property<string>("Rg");
 
                     b.Property<string>("Senha");
 

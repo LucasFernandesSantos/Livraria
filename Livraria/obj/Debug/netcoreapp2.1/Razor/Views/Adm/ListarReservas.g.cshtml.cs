@@ -54,7 +54,7 @@ using Livraria.Models;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(29, 148, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3bd0077ceb6b49c884cc7a5081a11754", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f01802f1261c48e5adfe0270e697b7c8", async() => {
                 BeginContext(35, 135, true);
                 WriteLiteral("\r\n    <H2><label style=\"color:darkorange; margin-left:10px\"><b><u>Histórico de Reservas:</u></b></label></H2>\r\n    <br />\r\n    <br />\r\n");
                 EndContext();

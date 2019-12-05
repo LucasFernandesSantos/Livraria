@@ -19,8 +19,8 @@ namespace Livraria.Controllers
         }
         //mec
         [HttpGet]
-        [Route("BuscarPorCategoria/{id}")]
-        public IActionResult BuscarPorCategoria(int id)
+        [Route("BuscarPorGenero/{id}")]
+        public IActionResult BuscarPorGenero(int id)
         {
             List<DadosLivro> livros = _LivroDAO.ListarPorGeneros(id);
             if (livros.Count > 0)
