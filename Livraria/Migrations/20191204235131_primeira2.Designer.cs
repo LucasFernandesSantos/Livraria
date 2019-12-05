@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Livraria.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20191204174228_eoqall")]
-    partial class eoqall
+    [Migration("20191204235131_primeira2")]
+    partial class primeira2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

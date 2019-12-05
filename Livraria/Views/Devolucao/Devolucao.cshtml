@@ -1,34 +1,49 @@
 ﻿@model List<ReservaLivro>
 
-<br /><br />
-<table class="table table-hover table-striped">
-    <thead>
-        <tr class="table-dark">
-        
-            <th>Livro</th>
-            <th>Autor</th>
-            <th>Data inicial</th>
-            <th>Data final</th>
+    <H2><label style="color:darkorange; margin-left:10px"><b><u>Devolução do Livro: </u></b></label></H2>
+    <br />
 
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (ReservaLivro item in Model)
-        {
-        <tr class="table-success">
-        
-            <td>@item.DadosLivro.Title </td>
-            <td>@item.DadosLivro.Autor </td>
-            <td>@item.DataReservaLivro</td>
-            <td>@item.DataDevolucaoLivro</td>
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr class="table-dark">
 
-            <td>
+                <th>Livro</th>
+                <th>Autor</th>
+                <th>Data inicial</th>
+                <th>Data final</th>
 
-                <a asp-action="DevolverReserva" class="btn btn-info form-control col-md-7" style="margin-left:10px;" asp-controller="Devolucao" asp-route-id="@item.IdReservaLivro">Devolução</a>
-            </td>
-        </tr>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (ReservaLivro item in Model)
+            {
+                <tr class="table-success">
+
+                    <td>@item.DadosLivro.Title </td>
+                    <td>@item.DadosLivro.Autor </td>
+                    <td>@item.DataReservaLivro</td>
+                    <td>@item.DataDevolucaoLivro</td>
+
+                    <td>
+
+                        <a asp-action="DevolverReserva" class="btn btn-info form-control col-md-7" style="margin-left:10px;" asp-controller="Devolucao" asp-route-id="@item.IdReservaLivro">Devolução</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <style>
+        body {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: url(https://i.imgur.com/u9sUbQi.jpg) no-repeat center center fixed;
+            background-size: cover;
+            background-position: center;
+            -webkit-filter: blur(px);
         }
-    </tbody>
-</table>
-
+    </style>

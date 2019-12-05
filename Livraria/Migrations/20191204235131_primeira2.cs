@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Livraria.Migrations
 {
-    public partial class teste : Migration
+    public partial class primeira2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -102,7 +102,8 @@ namespace Livraria.Migrations
                     DataDevolucaoLivro = table.Column<DateTime>(nullable: false),
                     DadosLivroId = table.Column<int>(nullable: true),
                     ClienteId = table.Column<int>(nullable: false),
-                    LivroId = table.Column<int>(nullable: false)
+                    LivroId = table.Column<int>(nullable: false),
+                    StatusR = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

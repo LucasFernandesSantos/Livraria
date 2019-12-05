@@ -1,53 +1,11 @@
 ﻿@model DadosLivro
-<!--
-<form method="post">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <fieldset style="margin-bottom:30px">
-        <legend>Dados do Livro</legend>
-        <div class="form-group" id="Tittle">
-            <label asp-for="items.volumeInfo.Title"></label>
-            <input type="text" class="form-control" asp-for="items.volumeInfo.Title" />
-            <span asp-validation-for="items.volumeInfo.Title" class="text-danger"></span>
-        </div>
-        <input type="submit" value="Buscar" class="btn btn-warning"
-               asp-action="BuscarLivro" asp-controller="Livro" />
-        <div class="form-group">
-            <label asp-for="items.volumeInfo.Authors"></label>
-            <input type="text" class="form-control" asp-for="items.volumeInfo.Authors"
-                   readonly="" />
-        </div>
-    </fieldset>
-</form>
-    -->
-@*<form method="post">
-
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <input type="text" class="form-control" name="nome" />
-
-
-    <input type="submit" value="Buscar" class="btn btn-warning"
-           asp-action="BuscarLivro" asp-controller="Livro" />
-    <div class="form-group">
-        <label asp-for="Authors"></label>
-        <input type="text" class="form-control" asp-for="Authors[0]" />
-    </div>
-    <div class="form-group">
-        <label asp-for="Title"></label>
-        <input type="text" class="form-control" asp-for="Title" />
-    </div>
-    <div class="form-group">
-        <label asp-for="Publisher"></label>
-        <input type="text" class="form-control" asp-for="Publisher" />
-    </div>
-    <div class="form-group">
-        <label asp-for="Description"></label>
-        <textarea rows="5" style="height:150px" class="form-control" asp-for="Description"></textarea>
-
-    </div>*@
 
 <form method="post" enctype="multipart/form-data">
+    <H2> <label style="color:darkorange; margin-left:10px"><b><u>Cadastro do Livro:</u></b></label></H2>
+    <br />
+    <br />
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <h4 class="" style="color:black; color:darkgreen; background-color:wheat; margin-bottom:30px; margin-top:30px"><b> -- Cadastro Livro --</b></h4>
+    <H4> <label style="color:white; margin-left:10px"><b><u>Dados do livro:</u></b></label></H4>
     <div class="form-group" id="CEP">
         <div class="form-group">
             <div class="form-inline">
@@ -89,7 +47,7 @@
             <input class="form-control col-md-3" style="margin-left:5px;" placeholder="Editora" asp-for="Publisher" readonly="" title="Editora" />
             <label class="text-info"></label>
             <select asp-items="@ViewBag.Generos" class="form-control col-md-3" style="margin-left:5px;" placeholder="Gênero" name="drpGeneros" readonly="" title="Gênero">
-                <option>-- GÊNERO/View -- </option>
+                <option>-- GÊNERO -- </option>
             </select>
         </div>
     </div>
@@ -116,38 +74,29 @@
             </div>
             <textarea rows="5" style="height:150px; margin-left:5px;" class="form-control col-md-9" placeholder="Descrição" asp-for="Description" readonly="" title="Descrição"></textarea>
         </div>
+        <br />
         <div class="form-group" id="Imagem">
-            <label>Imagem:</label><br />
-            <input type="file" name="fupImagem" />
+            <H4> <label style="color:white; margin-left:10px"><b><u>Imagem:</u></b></label></H4>
+            <input type="file" style="margin-left:5px;" name="fupImagem" />
         </div>
         <div class="form-group">
             <div class="form-inline">
-                <input type="submit" value="Cadastar" class="btn-outline-success form-control col-md-4" style="margin-left:10px;" asp-action="CadastrarLivro" asp-controller="Livro" />
+                <input type="submit" value="Cadastar" class="btn-success form-control col-md-4" style="margin-left:5px;" asp-action="CadastrarLivro" asp-controller="Livro" />
             </div>
         </div>
-
     </div>
-    <h4 class="" style="color:black; color:darkgreen; background-color:wheat; margin-bottom:30px; margin-top:30px"><b> _____________________________________________________________________________________________________</b></h4>
-    @*<style>
-            body {
-                position: fixed;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                background: url(https://abrilsuperinteressante.files.wordpress.com/2018/04/bibliotecas.png) no-repeat center center fixed;
-                background-size: cover;
-                background-position: center;
-                -webkit-filter: blur(0px);
-            }
-        </style>*@
 
 </form>
-@*<form method="post">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <input type="text" class="form-control" name="cep" />
-
-        <input type="submit" value="Buscar" class="btn btn-warning"
-               asp-action="BuscarLivro" asp-controller="Livro" />
-
-    </form>*@
+<style>
+    body {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: url(https://i.imgur.com/u9sUbQi.jpg) no-repeat center center fixed;
+        background-size: cover;
+        background-position: center;
+        -webkit-filter: blur(px);
+    }
+</style>

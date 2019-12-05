@@ -39,5 +39,17 @@ namespace Livraria.DAO
         {
             return _context.Generos.ToList();
         }
+
+        public void RemoverGenero(int id)
+        {
+            _context.Generos.Remove(BuscarPorId(id));
+            _context.SaveChanges();
+        }
+
+        public void EditarGenero(GeneroLivro generoLivro)
+        {
+            _context.Generos.Update(generoLivro);
+            _context.SaveChanges();
+        }
     }
 }

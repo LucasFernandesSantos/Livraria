@@ -1,5 +1,6 @@
 ﻿using Livraria.DAO;
 using Livraria.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -39,6 +40,24 @@ namespace Livraria.Controllers
                 ModelState.AddModelError("", "Esse gênero já está cadastrado.");
             }
             return View(generoLivro);
+        }
+
+        public IActionResult RemoverGenero(int id)
+        {
+            _generoLivroDAO.RemoverGenero(id);
+            return RedirectToAction("ListaGeneros");
+        }
+
+        public IActionResult EditarGenero(int id)
+        {
+            var result = View(_generoLivroDAO.BuscarPorId(id));
+            return result;
+        }
+        [HttpPost]
+        public IActionResult EditarGenero(GeneroLivro generoLivro)
+        {
+            _generoLivroDAO.EditarGenero(generoLivro);
+            return RedirectToAction("ListaGeneros");
         }
     } 
 }

@@ -1,24 +1,38 @@
 ﻿@model GeneroLivro
 
-@{
-    ViewData["Title"] = "CadastrarGenero";
-}
+<form>
+    <H2> <label style="color:darkorange; margin-left:10px"><b><u>Cadastro do Gênero:</u></b></label></H2>
 
+</form>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="CadastrarGenero">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <H4> <label style="color:white; margin-left:10px"><b><u>Nome:</u></b></label></H4>
             <div class="form-group">
-               <input class="form-control col-md-7" style="margin-left:10px;" placeholder="Gênero" asp-for="Nome" title="Gênero"/>
+                <input class="form-control col-md-7" style="margin-left:10px;" placeholder="Gênero" asp-for="Nome" title="Gênero" />
             </div>
             <div class="form-group">
-                <input type="submit" value="Cadastrar"  class="btn-outline-info form-control col-md-4" style="margin-left:10px;" />
-              
+                <input type="submit" value="Cadastrar" class="btn-success form-control col-md-7" style="margin-left:10px;" />
+
             </div>
         </form>
     </div>
 </div>
 <div>
-    <a asp-action="ListaGeneros">Retornar para Lista de Gêneros</a>
+    <a asp-action="ListaGeneros" class="btn btn-danger col-md-1" style="margin-left:10px">Voltar</a>
 </div>
+<style>
+    body {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: url(https://i.imgur.com/u9sUbQi.jpg) no-repeat center center fixed;
+        background-size: cover;
+        background-position: center;
+        -webkit-filter: blur(px);
+    }
+</style>

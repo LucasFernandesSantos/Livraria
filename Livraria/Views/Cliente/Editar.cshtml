@@ -1,5 +1,9 @@
 ﻿@model Cliente
 <form asp-action="Editar" method="post">
+    <H2> <label style="color:darkorange; margin-left:10px"><b><u>Editar dados do Cliente:</u></b></label></H2>
+    <br />
+    <br />
+    <H4> <label style="color:white; margin-left:10px"><b><u>Seus Dados:</u></b></label></H4>
     <input type="hidden" asp-for="ClienteId" />
     <div class="form-group">
         <div class="form-group">
@@ -29,10 +33,25 @@
     </div>
     <div class="form-group">
         <div class="form-inline">
-            <button class="btn btn-outline-success col-md-4" type="submit">Salvar</button>
+            <button class="btn btn-success col-md-2" style="margin-left:10px" type="submit">Salvar</button>
         </div>
     </div>
 
 </form>
+
+<style>
+    body {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: url(https://i.imgur.com/u9sUbQi.jpg) no-repeat center center fixed;
+        background-size: cover;
+        background-position: center;
+        -webkit-filter: blur(px);
+    }
+</style>
+
 
 

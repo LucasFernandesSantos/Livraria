@@ -179,3 +179,7 @@ C:\Users\User\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\GeneroLivro\
 C:\Users\User\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\GeneroLivro\ListaGeneros.g.cshtml.cs
 C:\Users\User\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\ReservaLivro\ReservaLivro.g.cshtml.cs
 C:\Users\User\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Adm\ListarReservas.g.cshtml.cs
+C:\Users\gusta\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Adm\ListarReservas.g.cshtml.cs
+C:\Users\gusta\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\Devolucao\Devolucao.g.cshtml.cs
+C:\Users\gusta\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\ReservaLivro\ReservaLivro.g.cshtml.cs
+C:\Users\gusta\Livraria\Livraria\obj\Debug\netcoreapp2.1\Razor\Views\GeneroLivro\EditarGenero.g.cshtml.cs
